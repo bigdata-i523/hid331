@@ -1,16 +1,13 @@
 # hid331
 # Comments
 
-* Mind the ```quotes and do not forget them```
-* Remove all sections that you have not yet created a directory in github with so our automated scripts do not fail. Only add them if the 
-
 # Owner
 
 ```
 owner:
-    hid: 000
-    name: Gregor von Laszewski
-    url: https://github.com/bigdata-i523/sample-hid000
+    hid: 331
+    name: Tyler Peterson
+    url: https://github.com/bigdata-i523/hid331
 ```
 
 # Paper 1
@@ -18,14 +15,12 @@ owner:
 ```
 paper1:
    author: 
-   - Gregor von Laszewski
-   - Fugang Wang
+   - Tyler Peterson
    hid:
-   - 000
-   - 001
-   title: This is my paper about xyz
-   abstract: This paper showcases this and that and the other
-   url: https://github.com/bigdata-i523/sample-hid000/paper1/paper1.pdf
+   - 331
+   title: Big Data Applications In Population Health Management
+   abstract: Healthcare is increasingly focusing its efforts on keeping patients out of the hospital. To do so, providers must serve their patients by focusing on proactive disease prevention and maintenance. Data analysis is essential for understanding populations and prioritizing opportunities for intervention. 
+   url: https://github.com/bigdata-i523/hid331/paper1/paper1.pdf
    type: latex
    status: in progress
 ```
@@ -35,13 +30,14 @@ paper1:
 ```
 paper2:
    author: 
-   - Gregor von Laszewski
+   - Tyler Peterson
    hid:
-   - 000
-   title: This is my paper about the other abc
-   abstract: This paper showcases tis and that and the other in regards to abc
-   url: https://github.com/bigdata-i523/sample-hid000/paper2/paper2.pdf   
-   type: word
+   - 331
+   title: TBD
+   abstract: TBD
+   url: https://github.com/bigdata-i523/hid331/paper2/paper2.pdf 
+   type: latex
+   status: not started
 ```
 
 # Project 
@@ -50,16 +46,17 @@ We will assign new pids for you when we approve the project and reports
 Just use one type and delete the line with 
 
 ```
-paper2:
+project:
    type: project
    type: report
    author: 
-   - Gregor von Laszewski
+   - Tyler Peterson
    hid:
-   - 000
-   title: Benchmarking a BigData Docker deployment
-   abstract: This paper showcases tis and that and the other 
-   url: https://github.com/bigdata-i523/sample-pid000/project/report.pdf
+   - 331
+   title: TBD
+   abstract: TBD
+   url: https://github.com/bigdata-i523/hid331/project/project.pdf
    type: latex
+   status: not started
 ```
    
