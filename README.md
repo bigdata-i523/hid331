@@ -42,9 +42,6 @@ paper2:
 
 # Project 
 
-We will assign new pids for you when we approve the project and reports   
-Just use one type and delete the line with 
-
 ```
 project:
    type: project
