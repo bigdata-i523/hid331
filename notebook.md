@@ -34,3 +34,5 @@
 #Writing
 
 * 9/6/17 - Submitted topic for paper 1
+* 9/18/17 - Reviewed Basic Emacs content on class website
+* 9/18/17 - Reviewed LaTeX content on class website
