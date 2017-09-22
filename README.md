@@ -1,3 +1,6 @@
+# hid331
+# Comments
+
 # Owner
 
 ```
@@ -18,10 +21,10 @@ paper1:
    title: Big Data Applications In Population Health Management
    abstract: Healthcare is increasingly focusing its efforts on keeping patients out of the hospital. To do so, providers must serve their patients by focusing on proactive disease prevention and maintenance. Data analysis is essential for understanding populations and prioritizing opportunities for intervention. 
    url: https://github.com/bigdata-i523/hid331/paper1/report.pdf
-   type: LaTex
+   type: latex
    status: in progress
 ```
-
+   
 # Paper 2
 
 ```
@@ -30,10 +33,27 @@ paper2:
    - Tyler Peterson
    hid:
    - 331
-   title: Big Data Applications In Using Neural Networks For Medical Image Analysis
-   abstract: Neural networks are increasingly being used to assist medical professional in their review of medical imaging studies. These models help to identify tumor, strokes and malignant melanomas, among other maladies.
-   url: https://github.com/bigdata-i523/hid331/paper2/report.pdf
-   type: LaTex
-   status: in progress
+   title: TBD
+   abstract: TBD
+   url: https://github.com/bigdata-i523/hid331/paper2/report.pdf 
+   type: latex
+   status: not started
+```
+
+# Project 
+
+```
+project:
+   type: project
+   type: report
+   author: 
+   - Tyler Peterson
+   hid:
+   - 331
+   title: TBD
+   abstract: TBD
+   url: https://github.com/bigdata-i523/hid331/project/report.pdf
+   type: latex
+   status: not started
 ```
    
