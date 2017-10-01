@@ -16,10 +16,16 @@ paper1:
    hid:
    - 331
    title: Big Data Applications In Population Health Management
-   abstract: Healthcare is increasingly focusing its efforts on keeping patients out of the hospital. To do so, providers must serve their patients by focusing on proactive disease prevention and maintenance. Data analysis is essential for understanding populations and prioritizing opportunities for intervention.
+   abstract: >
+       Healthcare is increasingly focusing its efforts on keeping patients
+       out of the hospital. To do so, providers must serve their patients
+       by focusing on proactive disease prevention and maintenance. Data
+       analysis is essential for understanding populations and
+       prioritizing opportunities for intervention. 
    url: https://github.com/bigdata-i523/hid331/paper1/report.pdf
    type: latex
    status: in progress
+   chapter: Health
 ```
    
 # Paper 2
