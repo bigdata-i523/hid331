@@ -24,7 +24,7 @@ paper1:
        prioritizing opportunities for intervention. 
    url: https://github.com/bigdata-i523/hid331/paper1/report.pdf
    type: latex
-   status: in progress
+   status: 99%
    chapter: Health
 ```
    
