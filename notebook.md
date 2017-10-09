@@ -21,6 +21,8 @@
 * 09/20/17 Reviewed all material in 3.2 - Overview of Data Science
 * 09/20/17 Reviewed material in 3.3 - Big Data Use Cases Survey through 3.3.1.4 - Security and Privacy
 * 09/25/17 Reviewed material in 3.3 - Big Data Use Cases Survey through 3.3.2.4 - Healthcare and Life Science Use Cases
+* 09/27/17 Reviewed material in 3.3 - Big Data Use Cases Survey through 3.3.2.9 - Energy Use Case
+
 
 # Practice
 
@@ -41,3 +43,4 @@
 * 09/19/17 Submitted topic for paper 2
 * 09/21/17 Research and literature review for paper 1
 * 09/28/17 Research and literature review for paper 1
+* 09/29/17 - 10/08/17 Worked on paper 1
