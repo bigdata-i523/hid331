@@ -25,6 +25,7 @@
 * 09/27/17 Reviewed material in 3.3 - Big Data Use Cases Survey through 3.3.2.9 - Energy Use Case
 * 10/21/17 Reviewed material in 3.3 - Big Data Use Cases Survey through 3.3.3.6 Use Case Classifications III
 
+
 # Practice
 
 * 09/08/17 Purchased Raspberry Pi
@@ -52,3 +53,19 @@
 * 10/21/17 Fixed bibtex issues and writing issue
 * 10/21/17 Updated README.yml to indicate I am ready to have paper re-reviewed
 * 10/21/17 Researched project topics
+
+
+# Meetings
+
+* 09/04/17 Meeting: Unable to attend online office hours during designated time. Reviewed notes and content posted to Piazza.
+* 09/11/17 Meeting: Unable to attend online office hours during designated time. Reviewed notes and content posted to Piazza.
+* 09/18/17 Meeting: Unable to attend online office hours during designated time. Reviewed notes and content posted to Piazza.
+* 09/25/17 Meeting: Unable to attend online office hours during designated time. Reviewed notes and content posted to Piazza.
+* 10/02/17 Meeting: Unable to attend online office hours during designated time. Reviewed notes and content posted to Piazza.
+
+
+# Location
+
+* Address: Elmhurst, Illinois
+* Latitude: 41.899474
+* Longitude: -87.940342
