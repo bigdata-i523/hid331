@@ -14,8 +14,8 @@ paper1:
     chapter: Health
     hid:
         - 331
-    status: 100%
-    title: Big Data Applications In Population Health Management
+    status: 100% 10/22/17
+    title: Big Data Applications in Population Health Management
     type: latex
     url: https://github.com/bigdata-i523/hid331/paper1/report.pdf
 paper2:
@@ -28,6 +28,6 @@ paper2:
     hid:
         - 331
     status: in progress
-    title: Big Data Applications In Using Neural Network For Medical Image Analysis
+    title: Big Data Applications in Using Neural Network for Medical Image Analysis
     type: latex
     url: https://github.com/bigdata-i523/hid331/paper2/report.pdf

@@ -12,6 +12,7 @@
 * 09/10/17 Completed survey 'Where do you intend to program in python'
 * 09/10/17 Completed survey 'What is your python knowledge'
 * 09/10/17 Completed survey 'What lectures did you view'
+* 10/21/17 Reviewed online class discussion notes
 
 
 # Theory
@@ -22,7 +23,7 @@
 * 09/20/17 Reviewed material in 3.3 - Big Data Use Cases Survey through 3.3.1.4 - Security and Privacy
 * 09/25/17 Reviewed material in 3.3 - Big Data Use Cases Survey through 3.3.2.4 - Healthcare and Life Science Use Cases
 * 09/27/17 Reviewed material in 3.3 - Big Data Use Cases Survey through 3.3.2.9 - Energy Use Case
-
+* 10/21/17 Reviewed material in 3.3 - Big Data Use Cases Survey through 3.3.3.6 Use Case Classifications III
 
 # Practice
 
@@ -32,7 +33,8 @@
 * 09/16/17 Completed Virtualbox.2 - Successfully copied and pasted content between host and guest operating systems
 * 09/16/17 Completed Virtualbox.3 - Installed development environment onto ubuntu VM
 * 09/16/17 Setup pyenv, installed Python 2.7 and Python 3.6, set Python 3.6 as global version
-* 09/16/17 Successfully forked my bigdata-i523 repository, cloned it, and made several commits including an update of the README.md file and the first submission of this notebook
+* 09/16/17 Successfully forked my bigdata-i523 repository and made several commits including an update of the README.md file and the first submission of this notebook
+* 10/21/17 Created public and private SSH keys, cloned my github repository onto my ubuntu virtual machine and committed changes to upstream repository using command line
 
 
 # Writing
@@ -44,3 +46,9 @@
 * 09/21/17 Research and literature review for paper 1
 * 09/28/17 Research and literature review for paper 1
 * 09/29/17 - 10/08/17 Worked on paper 1
+* 10/09/17 Submitted paper 1
+* 10/15/17 Research and literature review for paper 2
+* 10/21/17 Submitted paper 1 to Turnitin.com, reviewed feedback and made adjustments to paper 1 
+* 10/21/17 Fixed bibtex issues and writing issue
+* 10/21/17 Updated README.yml to indicate I am ready to have paper re-reviewed
+* 10/21/17 Researched project topics
