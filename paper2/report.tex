@@ -1,41 +1,23 @@
 \documentclass[sigconf]{acmart}
 
+
 \input{format/i523}
 
+
 \begin{document}
-\title{Big Data for Edge Computing}
+\title{Big Data Applications in Using Neural Networks for Medical Image Analysis}
 
 
-\author{Ben Trovato}
+\author{Tyler Peterson}
 \orcid{1234-5678-9012}
 \affiliation{%
-  \institution{Institute for Clarity in Documentation}
-  \streetaddress{P.O. Box 1212}
-  \city{Dublin} 
-  \state{Ohio} 
-  \postcode{43017-6221}
-}
-\email{trovato@corporation.com}
-
-\author{G.K.M. Tobin}
-\affiliation{%
-  \institution{Institute for Clarity in Documentation}
-  \streetaddress{P.O. Box 1212}
-  \city{Dublin} 
-  \state{Ohio} 
-  \postcode{43017-6221}
-}
-\email{webmaster@marysville-ohio.com}
-
-\author{Gregor von Laszewski}
-\affiliation{%
-  \institution{Indiana University}
-  \streetaddress{Smith Research Center}
+  \institution{Indiana University - School of Informatics, Computing, and Engineering}
+  \streetaddress{711 N. Park Avenue}
   \city{Bloomington} 
-  \state{IN} 
+  \state{Indiana} 
   \postcode{47408}
-  \country{USA}}
-\email{laszewski@gmail.com}
+}
+\email{typeter@iu.edu}
 
 
 % The default list of authors is too long for headers}
@@ -43,101 +25,43 @@
 
 
 \begin{abstract}
-This paper provides a sample of a \LaTeX\ document which conforms,
-somewhat loosely, to the formatting guidelines for
-ACM SIG Proceedings.
+
+ Medical image analysis is proving to be a promising domain for disruption by machine learning. The analysis of medical imagery has long been within the purview of radiologists, a specialization in medicine that reviews medical imaging to form diagnoses and advise on treatment options. Historically, radiologists have relied on their training, senses and years of experience to evaluate images for medical issues, such as the presence of tumors, lung nodules, and hip osteoarthritis. The presence of technology, generally referred to as computer-aided diagnosis (CAD) tools, has been growing over the last several decades, but modern computing power and sizable datasets has accelerated the effectiveness of these assistive tools. Machine learning algorithms, especially artifical neural networks (ANN), are being leveraged to help identify problems present in medical images at a great level of success. Several research studies conclude that ANN techniques can match, and occassionally outperform, the abilities of radiologists. Big data and the application of advanced algorithms show promise for evolving our ability to successfully evaluate medical images and save lives in the process.      
+  
 \end{abstract}
 
-\keywords{Big Data, Edge Computing i523}
+
+\keywords{i523, hid331, Big Data, Medical Image Analysis, Artificial Neural Networks, Medicine}
 
 
 \maketitle
 
 
-
 \section{Introduction}
 
-Put here an introduction about your topic. 
-We just need one sample refernce so the paper compiles in LaTeX so we
-put it here \cite{editor00}.
+ This is my introduction \cite{editor00}. The increased attention and effectiveness of these tools is brought on by several factors, including sufficient computing power and the availability of sufficiently large train sets needed by the ANN to understand patterns in the data.
 
-\section{figures}
-
-In Figure \ref{f:fly} we show a fly. Please note that because we use
-just columwidth that the size of the figure will change to the
-columnwidth of the paper once we change the layout to final. CHnaging
-the layout to final should not be done by you. All figures will be
-listed at the end.
-
-\begin{figure}[!ht]
-  \centering\includegraphics[width=\columnwidth]{images/fly.pdf}
-  \caption{Example caption}\label{f:fly}
-\end{figure}
-
-When copying the example, please do not check in the images from the
-examples into your images directory as you will not need them for your
-paper. Instead use images that you like to include. If you do not have
-any images, do not dreate the images folder.
-
-\section{Tables}
-
-In case you need to create tables, you can do this with online tools
-(if you do not mind sharing your data) such as
-\url{https://www.tablesgenerator.com/} or other such tools (please
-google for them). They even allow you to manage tables as CSV.
-
-or generate them by hand while using the provided template in Table\ref{t:mytable}. Not ethat
-the caption is before the tabular environment.
-
-\begin{table}[htb]
-\centering
-\caption{My caption}
-\label{t:mytabble}
-\begin{tabular}{lll}
-1 & 2 & 3 \\
-\hline
-4 & 5 & 6 \\
-7 & 8 & 9
-\end{tabular}
-\end{table}
-
-\section{Long example}
-
-If you like to see a more elaborate example, please look at
-report-long.tex. 
 
 \section{Conclusion}
 
-Put here an conclusion. Conlcusions and abstracts must not have any
-citations in the section.
+ This is my conclusion.
 
-
+ 
 \begin{acks}
 
-  The authors would like to thank Dr. Gregor von Laszewski for his
-  support and suggestions to write this paper.
+ These are my acknowledgements
 
 \end{acks}
+
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{report} 
 
+
 \appendix
-
-We include an appendix with common issues that we see when students
-submit papers. One particular important issue is not to use the
-underscore in bibtex labels. Sharelatex allows this, but the
-proceedings script we have does not allow this.
-
-When you submit the paper you need to address each of the items in the
-issues.tex file and verify that you have done them. Please do this
-only at the end once you have finished writing the paper. To d this
-cange TODO with DONE. However if you check something on with DONE, but
-we find you actually have not executed it correcty, you will receive
-point deductions. Thus it is important to do this correctly and not
-just 5 minutes before the deadline. It is better to do a late
-submission than doing the check in haste. 
+ 
 
 \input{issues}
+
 
 \end{document}
