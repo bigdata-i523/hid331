@@ -55,6 +55,10 @@
 * 10/21/17 Updated README.yml to indicate I am ready to have paper re-reviewed
 * 10/21/17 Researched project topics
 * 10/22/17 Worked on paper 2
+* 10/24/17 Researched project topics
+* 10/26/17 Submitted project proposal
+* 11/01/17 Worked on paper 2
+* 11/02/17 Worked on paper 2
 
 
 # Meetings
