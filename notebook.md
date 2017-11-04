@@ -24,6 +24,7 @@
 * 09/27/17 Reviewed material in 3.3 - Big Data Use Cases Survey through 3.3.2.9 - Energy Use Case
 * 10/21/17 Reviewed material in 3.3 - Big Data Use Cases Survey through 3.3.3.6 Use Case Classifications III
 * 10/22/17 Reviewed material in 3.4 - X-Informatics Case Study Health Informatics through 3.4.1.8 Clouds and Health
+* 11/03/17 Reviewed material in 3.4 - X-Informatics Case Study Health Informatics through 3.4.1.14 Genomics, Proteomics and Information Visualization
 
 
 # Practice
@@ -37,6 +38,7 @@
 * 09/16/17 Successfully forked my bigdata-i523 repository and made several commits including an update of the README.md file and the first submission of this notebook
 * 10/21/17 Created public and private SSH keys, cloned my github repository onto my ubuntu virtual machine and committed changes to upstream repository using command line
 * 10/22/17 Installed Jupyter Notebook on ubuntu virtual machine via command line
+* 11/03/17 Worked on Jupyter notebook experiment
 
 
 # Writing
@@ -68,7 +70,9 @@
 * 09/18/17 Meeting: Unable to attend online office hours during designated time. Reviewed notes and content posted to Piazza.
 * 09/25/17 Meeting: Unable to attend online office hours during designated time. Reviewed notes and content posted to Piazza.
 * 10/02/17 Meeting: Unable to attend online office hours during designated time. Reviewed notes and content posted to Piazza.
-
+* 10/09/17 Meeting: Unable to attend online office hours during designated time. Reviewed notes and content posted to Piazza.
+* 10/16/17 Meeting: Unable to attend online office hours during designated time. Reviewed notes and content posted to Piazza.
+* 10/23/17 Meeting: Unable to attend online office hours during designated time. Reviewed notes and content posted to Piazza.
 
 # Location
 
