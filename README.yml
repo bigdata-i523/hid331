@@ -6,10 +6,11 @@ owner:
 paper1:
     review: Oct 22 2017
     abstract: >
-         Healthcare is increasingly focusing its efforts on keeping patients 
-         out of the hospital. To do so, providers must serve their patients by focusing 
-         on proactive disease prevention and maintenance. Data analysis is essential 
-         for understanding populations and prioritizing opportunities for intervention. 
+        Healthcare is increasingly focusing its efforts on keeping
+        patients out of the hospital. To do so, providers must serve
+        their patients by focusing on proactive disease prevention and
+        maintenance. Data analysis is essential for understanding
+        populations and prioritizing opportunities for intervention.
     author:
         - Tyler Peterson
     chapter: Health
@@ -22,15 +23,18 @@ paper1:
 paper2:
     review: Nov 6 2017
     abstract: >
-        Neural networks are increasingly being used to assist medical professional
-        in their review of medical imaging studies. These models help to identify
-        tumor, strokes and malignant melanomas, among other maladies.
+        Neural networks are increasingly being used to assist medical
+        professional in their review of medical imaging studies. These
+        models help to identify tumor, strokes and malignant melanomas,
+        among other maladies.
     author:
         - Tyler Peterson
     hid:
         - 331
     status: Nov 6 17 99%
-    title: Big Data Applications in Using Neural Networks for Medical Image Analysis
+    title: >
+        Big Data Applications in Using Neural Networks for Medical
+        Image Analysis
     type: latex
     url: https://github.com/bigdata-i523/hid331/paper2/report.pdf
 project:
@@ -41,20 +45,22 @@ project:
         - 331
     title: Big Data Applications in Predicting Hospital Readmissions
     abstract: >
-        Hospital readmissions occur when a patient is discharged from a hospital and
-	subsequently readmitted to a hospital within a short time frame. Hospitals
-	are held accountable for readmissions that occur within 30 days of the initial
-	inpatient stay. In 2016, nearly 2,600 hospitals were penalized $528 million
-	collectively for readmissions. Machine learning is increasingly being used to
-	preemptively identify patients who have a high probability of being readmitted
-	within 30 days. Utilizing a dataset that includes over 100,000 patients
-	admissions that occurred at 130 US hospitals between 1999 and 2008, this
-	project will attempt to build algorithms that identify high risk patients.
-	Open-source Python tools such as scikit-learn, pandas and matplotlib will be
-	used to prepare and model data. The process and accuracy of various machine
-	learning techniques will be described and compared, and the paper will discuss
-	additional data elements that may allow the algorithms to make more accurate
-	predictions.
+        Hospital readmissions occur when a patient is discharged from a
+        hospital and subsequently readmitted to a hospital within a short
+        time frame. Hospitals are held accountable for readmissions that
+        occur within 30 days of the initial inpatient stay. In 2016, nearly
+        2,600 hospitals were penalized $528 million collectively for
+        readmissions. Machine learning is increasingly being used to
+        preemptively identify patients who have a high probability of being
+        readmitted within 30 days. Utilizing a dataset that includes over
+        100,000 patients admissions that occurred at 130 US hospitals between
+        1999 and 2008, this project will attempt to build algorithms that
+        identify high risk patients. Open-source Python tools such as
+        scikit-learn, pandas and matplotlib will be used to prepare and model
+        data. The process and accuracy of various machine learning techniques
+        will be described and compared, and the paper will discuss additional
+        data elements that may allow the algorithms to make more accurate
+        predictions.
     url: https://github.com/bigdata-i523/hid331/project/
     type: project
     status: Dec 04 17 0%

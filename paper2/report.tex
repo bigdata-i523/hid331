@@ -1,12 +1,9 @@
 \documentclass[sigconf]{acmart}
 
-
 \input{format/i523}
-
 
 \begin{document}
 \title{Big Data Applications in Using Neural Networks for Medical Image Analysis}
-
 
 \author{Tyler Peterson}
 \orcid{1234-5678-9012}
@@ -19,27 +16,19 @@
 }
 \email{typeter@iu.edu}
 
-
 % The default list of authors is too long for headers}
 \renewcommand{\shortauthors}{G. v. Laszewski}
 
-
 \begin{abstract}
-
-  Medical image analysis is proving to be a promising domain for disruption by machine learning. The analysis of medical imagery has long been within the purview of radiologists, a specialization in medicine that reviews medical imaging to form diagnoses and advise on treatment options. Historically, radiologists have relied on their training, senses and years of experience to evaluate images for medical issues, such as the presence of tumors, lung nodules, and hip osteoarthritis. The presence of technology, generally referred to as computer-aided diagnosis (CAD) tools, has been growing over the last several decades, but modern computing power and sizable datasets have accelerated the effectiveness of these tools. Machine learning algorithms, especially artifical neural networks (ANN), are being leveraged to help identify abnormalities present in medical images at a high level of accuracy. Several research studies conclude that ANN techniques can match, and occassionally outperform, the abilities of radiologists. Big data and the application of advanced algorithms show promise for evolving our ability to successfully evaluate medical images and save lives in the process.
-
+Medical image analysis is proving to be a promising domain for disruption by machine learning. The analysis of medical imagery has long been within the purview of radiologists, a specialization in medicine that reviews medical imaging to form diagnoses and advise on treatment options. Historically, radiologists have relied on their training, senses and years of experience to evaluate images for medical issues, such as the presence of tumors, lung nodules, and hip osteoarthritis. The presence of technology, generally referred to as computer aided diagnosis (CAD) tools, has been growing over the last several decades, but modern computing power and sizable datasets have accelerated the effectiveness of these tools. Machine learning algorithms, especially artifical neural networks (ANN), are being leveraged to help identify abnormalities present in medical images at a high level of accuracy. Several research studies conclude that ANN techniques can match, and occassionally outperform, the abilities of radiologists. Big data and the application of advanced algorithms show promise for evolving our ability to successfully evaluate medical images and save lives in the process.
 \end{abstract}
-
 
 \keywords{i523, hid331, Big Data, Medical Image Analysis, Artificial Neural Networks, Medicine}
 
-
 \maketitle
 
-
 \section{Introduction}
-
-The analysis of medical imagery is primarily the responsibility of radiologists. These individuals are medical doctors who specialize in diagnosing diseases through review of images produced by various imaging modalities, such as x-ray, ultrasound, computerized tomography (CT), magnetic resonance imaging (MRI) and positron emission tomography (PET) \cite{cite00}. Radiologists serve as an expert to other physicians by analyzing the medical images of patients suspected of having certain medical issues, and by making recommendations on subsequent care based on the observations \cite{cite00}. The images reviewed by radiologists are generally stored digitially, and images are increasingly being stored in picture archiving and communications systems (PACS). These systems are required to keep up with the rapid accumulation of medical image data. Between 2005 and 2011, the medical image data in US hospitals increased from only 8,900 terabytes to 27,000 terabytes \cite{cite04}. That number is expected to grow by 20 percent every year due to increasing image size and resolution, the adoption of 3D imaging, and an aging population who will likely bring an increasing demand for medical imaging studies \cite{cite04}.
+The analysis of medical imagery is primarily the responsibility of radiologists. These individuals are medical doctors who specialize in diagnosing diseases through review of images produced by various imaging modalities, such as xray, ultrasound, computerized tomography (CT), magnetic resonance imaging (MRI) and positron emission tomography (PET) \cite{cite00}. Radiologists serve as an expert to other physicians by analyzing the medical images of patients suspected of having certain medical issues, and by making recommendations on subsequent care based on the observations \cite{cite00}. The images reviewed by radiologists are generally stored digitially, and images are increasingly being stored in picture archiving and communications systems (PACS). These systems are required to keep up with the rapid accumulation of medical image data. Between 2005 and 2011, the medical image data in US hospitals increased from only 8,900 terabytes to 27,000 terabytes \cite{cite04}. That number is expected to grow by 20 percent every year due to increasing image size and resolution, the adoption of 3D imaging, and an aging population who will likely bring an increasing demand for medical imaging studies \cite{cite04}.
 
 It is estimated that one billion medical images are created worldwide each year, and most of these are assessed by radiologists \cite{cite01}. Given that radiologists are human, their judgment is fallible. It is estimated that the lowest average error rate in analyzing medical imagery is 4 percent, which means collectively radiologists are estimated to make 40 million errors in judgement every year \cite{cite01}. A particularly striking example of fallibility comes from a study that analyzed the first and second interpretations of radiologists from Massachusetts General Hospital. They reviewed abdominal CTs and re-reviewed studies that had either been interpreted by themselves or a colleague. The study found that the radiologists disagreed with their peers 30 percent of the time and even disagreed with themselves 25 percent of the time \cite{cite01}.
 
@@ -58,17 +47,9 @@ There are several different machine learning techniques that have traditionally 
 Artifical neural networks (ANN) are another class of machine learning techniques that are increasingly being leveraged to tackle problems related to image analysis. ANNs, just like SVMs, are often utilized in a supervised manner, but do not require the painstaking process of expert-defined key attributes. Instead, ANNs learn the important features from the images themselves \cite{cite07}. This is an obvious advantage when compared to traditional machine learning methods, but the complexity of these algorithms has prevented the achievment of mainstream use until recently. The theory of ANNs was introduced in the 1950s, and research in this field has begun to flourish recently due to the increase in computing power and availability of high quality datasets \cite{cite05}.
 
 \section{How ANNs Work}
-
-The inspiration for the design of ANNs is drawn from the way a brain works.
-
-deep neural network, a convolutional neural network and a auto encoder
-
-AUC definition
-
 Several statistics can be used for evaluating the accuracy of ANNs. Sensitivity is the true positive detection rate. This is the percentage of positive occurrences that are successfully identified \cite{cite11}. A false positive may lead to unnecessary testing, unecessary expenses and unecessary stress on the patient who has been led to believe they have a certain condition. Specificity is the true negative detection. This is the percentage of negative occurrences that are successfully identified \cite{cite11}. A false negative may lead a missed diagnosis, resulting in delayed treatment and a potentially avoidable death in some cases. Sensitivity and specificity can be assessed together by the receiver operating characteristic (ROC). The ROC curve plots the true positive rate against the true positive rate (100 - the true negative rate) for varying decision thresholds. This illustrates the trade-off between sensitivity and specificity and can provide guidance on which decision threshold is appropirate for the task \cite{cite11}. ROC curves are often leveraged to evaluate the performance of ANNs by calculating the area under the ROC curve, also known as the AUC. The goal is the maximize the AUC value, and that value points to the optimal balance between sensitivity and specificity \cite{cite11}.
 
 \section{Applications in Medical Image Analysis}
-
 There are several specialities in which medical image analysis has been studied and applied for the purpose of computer-aided detection and diagnosis, and the effectiveness of ANNs has been formally studied in different ways. This includes ANNs versus medical professional, ANNs combined with medical professional versus ANNs and medical professionals separately, and one type of ANN versus another type of ANN.
 
 One study applied deep learning techniques to the evaluation of breast sentinel lymph nodes for the presence of metastasis. A positive test likely means the staging of the breast cancer will be higher and subsequent treatment will be more aggressive. A false negative means a patient's disease will be thought of as less advanced that it actually is, and subsequent treatment will not be as aggressive as necessary. The medical professionals in this study obtained a receiver operating curve (AUC) of 0.966, and the algorithm received an AUC of 0.925. The AUC for the combination of the human and computerized assessment was 0.995, which equals an 85 percent reduction in error for the medical professional \cite{cite09}.
@@ -77,17 +58,12 @@ A second study compare the performance of three different types of ANNs on the d
 
 A third study compares the performance of an ANN to two experienced physicians in the evaluation of x-rays for the presence of hip osteoarthritis. Hip osteoarthritis causes pain and stiffness which can diminish quality of life through an inability to perform daily tasks or go to work \cite{cite12}. Hip osteoarthritis is diagnosed through x-ray imaging studies, which are traditionally evaluated by radiologists. The time consuming and error-prone nature of this work is well documented, and with an increasingly aging population, efficient and timely diagnosis of hip osteoarthritis is growing in importance. The study used a CNN to achieve a sensitivity rate of 95.0 percent and a specificity rate of 90.7 percent, with an AUC of 0.94. Both physicians achieved a sensitivity of 100 percent and specificity rates of 86.0 percent and 93.0 percent. While the CNN recorded slightly lower sensitivty compared to the two physicians, it did record a higher specificity than one of the physicians \cite{cite12}. This shows promise for the performance of ANNs in evaluating hip osteoarthritis.
 
-
-
-Diabetic retinopathy is the third leading cause of blindness worldwide, contributing to 
-
 \section{Infrastructure}
 
 
 
 \section{Challenges}
-
-There are several challenges that may inhibit the success of widespread use of CAD tools built upon a neural network algorithm. First, overfitting occurs when an algorithm is trained based on a dataset that does not generalize well to examples outside of the data used to train the algorithm. Many studies demonstrating the value of ANNs were trained using relatively small datasets, and because the significant features present in a small dataset may not be the exact same features present in a large dataset, the algorithm derived from the small dataset may not perform well when analyzing images from the large dataset \cite{cite08} \cite{cite05}. This issue can be addressed by training algorithms on larger datasets, but of course requires access to larger datasets, longer training periods and more computing power.
+There are several challenges that may inhibit the success of widespread use of CAD tools built upon a neural network algorithm. First, overfitting occurs when an algorithm is trained based on a dataset that does not generalize well to examples outside of the data used to train the algorithm. Many studies demonstrating the value of ANNs were trained using relatively small datasets, and because the significant features present in a small dataset may not be the exact same features present in a large dataset, the algorithm derived from the small dataset may not perform well when analyzing images from the large dataset \cite{cite08}\cite{cite05}. This issue can be addressed by training algorithms on larger datasets, but of course requires access to larger datasets, longer training periods and more computing power.
 
 Second, algorithms derived from ANNs are frequently considered to be black boxes, meaning that the results are uninterpretable. This contrasts with several other types of machine learning techniques that produce equations that much more easily lend themselves to understanding which features are significant and why \cite{cite05}. Instill belief and trust in a sytem that is difficult, if not impossible, to explain is a barrier, even if that system produces accurate responses the vast majority of time.
 
@@ -98,29 +74,19 @@ Fourth, the ANNs are dependent on the quality and nature of the imaging data use
 Fifth, computing power
 
 \section{Conclusion}
+My conclusion
 
-math used - sigmoid function - why what does this do
-
-back propagation
-
-what is deep learning, how does it compare with human brains
-
- 
 \begin{acks}
 
- These are my acknowledgements
-
+I would like to thank Gregor von Laszewski and his teaching assistants for their help with the classes numerous questions and concerns.
+  
 \end{acks}
-
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{report} 
 
-
 \appendix
  
-
 \input{issues}
-
 
 \end{document}
