@@ -59,11 +59,23 @@ Artifical neural networks (ANN) are another class of machine learning techniques
 
 \section{How ANNs Work}
 
-The inspiration for the design of ANNs is drawn from the way a brain works. 
+The inspiration for the design of ANNs is drawn from the way a brain works.
+
+deep neural network, a convolutional neural network and a auto encoder
+
+AUC definition
+
+Several statistics can be used for evaluating the accuracy of ANNs. Sensitivity is the true positive detection rate. This is the percentage of positive occurrences that are successfully identified \cite{cite11}. A false positive may lead to unnecessary testing, unecessary expenses and unecessary stress on the patient who has been led to believe they have a certain condition. Specificity is the true negative detection. This is the percentage of negative occurrences that are successfully identified \cite{cite11}. A false negative may lead a missed diagnosis, resulting in delayed treatment and a potentially avoidable death in some cases. Sensitivity and specificity can be assessed together by the receiver operating characteristic (ROC). The ROC curve plots the true positive rate against the true positive rate (100 - the true negative rate) for varying decision thresholds. This illustrates the trade-off between sensitivity and specificity and can provide guidance on which decision threshold is appropirate for the task \cite{cite11}. ROC curves are often leveraged to evaluate the performance of ANNs by calculating the area under the ROC curve, also known as the AUC. The goal is the maximize the AUC value, and that value points to the optimal balance between sensitivity and specificity \cite{cite11}.
 
 \section{Applications in Medical Image Analysis}
 
-There are several specialities in which medical image analysis has been studied and applied for the purpose of computer-aided detection and diagnosis. ANNs have been used in studies to compare performance of radiologists to computerized approches. A study 
+There are several specialities in which medical image analysis has been studied and applied for the purpose of computer-aided detection and diagnosis, and the effectiveness of ANNs has been formally studied in different ways. This includes ANNs versus medical professional, ANNs combined with medical professional versus ANNs and medical professionals separately, and one type of ANN versus another type of ANN.
+
+One study applied deep learning techniques to the evaluation of breast sentinel lymph nodes for the presence of metastasis. A positive test likely means the staging of the breast cancer will be higher and subsequent treatment will be more aggressive. A false negative means a patient's disease will be thought of as less advanced that it actually is, and subsequent treatment will not be as aggressive as necessary. The medical professionals in this study obtained a receiver operating curve (AUC) of 0.966, and the algorithm received an AUC of 0.925. The AUC for the combination of the human and computerized assessment was 0.995, which equals an 85 percent reduction in error for the medical professional \cite{cite09}.
+
+A second study compare the performance of three different types of ANNs on the detection of cancerous lung nodules  in CT images. Lung cancer is a disease that greatly benefits from early detection. Over 220,000 new cases were identified in 2015, and an early detection of the disease improves the 5 year survival rate by roughly 50 percent \cite{cite10}. CT images provide three-dimensional (3D) views of the chest and are a key component of the clinical workflow of this specialty. These image are analyzed to understand if the structures in the image are part of the expected anatomy or if a nodule is a tumor. If a nodule is present, the goal is to understand if the nodule is benign or malignant. This determination closely depends on the size, shape and texture of the nodule, all of which can be analyzed by an ANN. This study compared the performance of a deep neural network (DNN), a convolutional neural network (CNN) and a auto encoder (SAE). The CNN performed best with an AUC of 0.916, while the DNN and SAE recorded AUCs of 0.877 and 0.884 respectively \cite{cite10}.
+
+A third study compares the performance of an ANN to two experienced physicians in the evaluation of x-rays for the presence of hip osteoarthritis. Hip osteoarthritis causes pain and stiffness which can diminish quality of life through an inability to perform daily tasks or go to work \cite{cite12}. Hip osteoarthritis is diagnosed through x-ray imaging studies, which are traditionally evaluated by radiologists. The time consuming and error-prone nature of this work is well documented, and with an increasingly aging population, efficient and timely diagnosis of hip osteoarthritis is growing in importance. The study used a CNN to achieve a sensitivity rate of 95.0 percent and a specificity rate of 90.7 percent, with an AUC of 0.94. Both physicians achieved a sensitivity of 100 percent and specificity rates of 86.0 percent and 93.0 percent. While the CNN recorded slightly lower sensitivty compared to the two physicians, it did record a higher specificity than one of the physicians \cite{cite12}. This shows promise for the performance of ANNs in evaluating hip osteoarthritis.
 
 
 
@@ -81,7 +93,9 @@ Second, algorithms derived from ANNs are frequently considered to be black boxes
 
 Third, ethical and legal considerations must be made. Adopters of this technology must grapple with questions pertaining to the liability if and when the system makes a prediction that harms a patient \cite{cite05}. If a radiologist is led to a conclusion by an algorithm, and the algorithm presents a false positive, a false negative or presents one conclusion while missing another, who is responsible for the error?
 
-Fourth, the ANNs are dependent on the quality and nature of the imaging data used to train algorithms. There is variability around the world in regards to the type and quality of imaging machines and the imaging protocols that dictate why and how images are taken \cite{cite05}. It's conceivable that two different imaging machines or two different techniques capturing two images of similar abnormalities could appear different to an algorith such that the conclusion is not the same. This issue could at least partially be addressed by sufficiently large datasets containing labeled images of abnormalities that were taken using machines of varying quality and executed using differing methods.  
+Fourth, the ANNs are dependent on the quality and nature of the imaging data used to train algorithms. There is variability around the world in regards to the type and quality of imaging machines and the imaging protocols that dictate why and how images are taken \cite{cite05}. It's conceivable that two different imaging machines or two different techniques capturing two images of similar abnormalities could appear different to an algorith such that the conclusion is not the same. This issue could at least partially be addressed by sufficiently large datasets containing labeled images of abnormalities that were taken using machines of varying quality and executed using differing methods.
+
+Fifth, computing power
 
 \section{Conclusion}
 
@@ -90,8 +104,6 @@ math used - sigmoid function - why what does this do
 back propagation
 
 what is deep learning, how does it compare with human brains
-
-difference between types on neural networks, which are best suited to the tast
 
  
 \begin{acks}
