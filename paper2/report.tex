@@ -26,7 +26,7 @@
 
 \begin{abstract}
 
- Medical image analysis is proving to be a promising domain for disruption by machine learning. The analysis of medical imagery has long been within the purview of radiologists, a specialization in medicine that reviews medical imaging to form diagnoses and advise on treatment options. Historically, radiologists have relied on their training, senses and years of experience to evaluate images for medical issues, such as the presence of tumors, lung nodules, and hip osteoarthritis. The presence of technology, generally referred to as computer-aided diagnosis (CAD) tools, has been growing over the last several decades, but modern computing power and sizable datasets have accelerated the effectiveness of these assistive tools. Machine learning algorithms, especially artifical neural networks (ANN), are being leveraged to help identify problems present in medical images at a high level of accuracy. Several research studies conclude that ANN techniques can match, and occassionally outperform, the abilities of radiologists. Big data and the application of advanced algorithms show promise for evolving our ability to successfully evaluate medical images and save lives in the process.      
+ Medical image analysis is proving to be a promising domain for disruption by machine learning. The analysis of medical imagery has long been within the purview of radiologists, a specialization in medicine that reviews medical imaging to form diagnoses and advise on treatment options. Historically, radiologists have relied on their training, senses and years of experience to evaluate images for medical issues, such as the presence of tumors, lung nodules, and hip osteoarthritis. The presence of technology, generally referred to as computer-aided diagnosis (CAD) tools, has been growing over the last several decades, but modern computing power and sizable datasets have accelerated the effectiveness of these tools. Machine learning algorithms, especially artifical neural networks (ANN), are being leveraged to help identify abnormalities present in medical images at a high level of accuracy. Several research studies conclude that ANN techniques can match, and occassionally outperform, the abilities of radiologists. Big data and the application of advanced algorithms show promise for evolving our ability to successfully evaluate medical images and save lives in the process.      
   
 \end{abstract}
 
@@ -39,21 +39,29 @@
 
 \section{Introduction}
 
-The analysis of medical imagery is primarily the responsibility of radiologists. These individuals are medical doctors who specialize in diagnosing diseases through review of images produced by various imaging modalities, such as x-ray, ultrasound, computerized tomography (CT), magnetic resonance imaging (MRI) and positron emission tomography (PET) \cite{cite00}. Radiologists serve as an expert to other physicians by analyzing the medical images of patients suspected of having certain medical issues, and by making recommendations on subsequent care based on the observations \cite{cite00}. The images reviewed by radiologists are generally stored digitially, and images are increasingly being stored in picture archiving and communications systems (PACS). These systems are expected to keep up with the rapid accumulation of medical image data. Between 2005 and 2011, the medical image data in US hospitals increased from only 8,900 terabytes to 27,000 terabytes \cite{cite04}. That number is expected to grow by 20 percent every year due to increasing image size, the adoption of 3D imaging, and an aging population who will likely bring an increasing demand for medical imaging studies \cite{cite04}.
+The analysis of medical imagery is primarily the responsibility of radiologists. These individuals are medical doctors who specialize in diagnosing diseases through review of images produced by various imaging modalities, such as x-ray, ultrasound, computerized tomography (CT), magnetic resonance imaging (MRI) and positron emission tomography (PET) \cite{cite00}. Radiologists serve as an expert to other physicians by analyzing the medical images of patients suspected of having certain medical issues, and by making recommendations on subsequent care based on the observations \cite{cite00}. The images reviewed by radiologists are generally stored digitially, and images are increasingly being stored in picture archiving and communications systems (PACS). These systems are required to keep up with the rapid accumulation of medical image data. Between 2005 and 2011, the medical image data in US hospitals increased from only 8,900 terabytes to 27,000 terabytes \cite{cite04}. That number is expected to grow by 20 percent every year due to increasing image size and resolution, the adoption of 3D imaging, and an aging population who will likely bring an increasing demand for medical imaging studies \cite{cite04}.
 
 It is estimated that one billion medical images are created worldwide each year, and most of these are assessed by radiologists \cite{cite01}. Given that radiologists are human, their judgment is fallible. It is estimated that the lowest average error rate in analyzing medical imagery is 4 percent, which means collectively radiologists are estimated to make 40 million errors in judgement every year \cite{cite01}. A particularly striking example of fallibility comes from a study that analyzed the first and second interpretations of radiologists from Massachusetts General Hospital. They reviewed abdominal CTs and re-reviewed studies that had either been interpreted by themselves or a colleague. The study found that the radiologists disagreed with their peers 30 percent of the time and even disagreed with themselves 25 percent of the time \cite{cite01}.
 
 There are two major types of radiologic analysis error: perceptual error and interpretive errors \cite{cite01}. Most errors, up to 80 percent, are perceptual errors, which occur when an abnormality is not perceived by the reviewer during the initial review, but is identified in a subsequent analysis \cite{cite01}. Interpretive errors occur when the radiologist successfully identifies the abnormality, but incorrectly diagnosis the problem, which may lead to a less appropriate course of careaction \cite{cite01}. There are several reasons why errors occur, including fatigue, excessive pace of analysis, distractions and insufficient knowledge of the practitioner. It is also asserted that the extreme complexity of a radiologist's job contributes to the errors. Errors occur in the practice of radiologists all across the world, at varying levels of training, in all imaging modalities and all clinical settings \cite{cite01}.
 
-Over the last several decades, there has been an effort to develop computer-aided diagnosis (CAD) tools to help mitigate errors. These are systems that are intended to supplement, not replace, the radiologist by reporting a second opinion to be considered alongside the radiologist's assessment. The earliest initiatives to develop these tools occurred in the 1960s, and concerted efforts began in the 1980s \cite{cite02}. Despite the research being nearly 60 years old, widespread adoption is a relatively recent occurrence \cite{cite03}. Early implementations leveraged various machine learning algorithms to perform classification tasks around identifying the presence of abnormalities, but the effectiveness of these tools was reported as low in clinical studies. Specifically, CAD assessments included more false positives than human assessments, which led to additional, unnecessary medical tests and biopsies \cite{05}.
+Over the last several decades, there has been an effort to develop computer-based tools to aid radiologists in the detection of abnormalities. Computer-aided diagnosis (CAD) tools are primarily intended to increase the rate at which problems are identified while also reducing the false negatives resulting from human error \cite{cite06} . These systems are intended to supplement, not replace, the radiologist by reporting a second opinion to be considered alongside the radiologist's assessment. The earliest initiatives to develop these tools occurred in the 1960s, and concerted efforts began in the 1980s \cite{cite02}. Despite the research being nearly 60 years old, widespread adoption is a relatively recent occurrence \cite{cite03}. Clinical studies reported early CAD implementations as being minimally effective. Specifically, CAD decisions included more false positives than human assessments, which created more work for radiologists and often led to additional, unnecessary medical tests and biopsies \cite{cite05}.
 
-Several improvements in the field of computing have increased the accuracy of CAD tools and subsequently encouraged wider adoption of these tools into clinical workflows. The advancements includes increased access to digital imaging datasets, larger imaging data sets, increased used of imaging in healthcare and increased computer power \cite{cite03}\cite{cite05}. These factors combine to create an ideal state for research related to artifical neural networks (ANN) and the implementation of tools that can rival, and even outperform, the assessment of highly trained radiologists.
+Several improvements in the field of computing have increased the accuracy of CAD tools and subsequently encouraged wider adoption of these tools into clinical workflows. The advancements includes increased access to digital imaging datasets, larger imaging data sets, increased used of imaging in healthcare and increased computing power \cite{cite03}\cite{cite05}. These factors combine to create an ideal state for research related to advanced machine learning techniques, namely artifical neural networks, and the implementation of tools that can rival, and even outperform, the assessment of highly trained radiologists.
 
-\section{Artificial Neural Networks}
+\section{Machine Learning and Artificial Neural Networks}
 
-history of
+Broadly speaking, machine learning is a way of applying artificial intelligence to a problem through the analysis of data. Machine learning techniques assess the features, or attributes, of samples in a dataset to identify patterns in the data, and the resulting algorithm can be used to render conclusions about new inputs without human intervention \cite{cite05}. Medical imaging analysis presents what is referred to as a classification problem. The typical example of a classifcation problem is handwritten numerical digit recognition. In this example, a handwritten digit between 0 and 9 is fed into the algorithm, and the algorithm decides which of the ten digits, or classes, that handwritten digit is most liekly to belong. Specific to medical image analysis, the classifier detects abnormalities in images otherwise not present in images of the same area in healthy individuals, and renders a conclusion as to what that abnormality is.
 
-simple applications - numbers
+There are several different machine learning techniques that have traditionally been used in classification problems, such as support vector machines (SVM). SVMs are an example of a supervised machine learning model, in that they work with labeled data. Every sample in the dataset includes the label, or correct answer, along with a value for each of the attributes. The SVM identifies patterns in the labeled samples to create an algorithm, and new, unlabeled samples can be processed by the algorithm and given a prediction. In the task of medical image analysis, attributes have historically been identified and designed by human experts \cite{cite06}. For example, an expert would identify abnormalities by codifying shape, texure, position and orientation of the structure \cite{cite07}.  In addition to this being labor intensive, the image features are specific to the immediate problem being explored and cannot be expected to work well for other image types \cite{cite06}.
+
+Artifical neural networks (ANN) are another class of machine learning techniques that are increasingly being leveraged to tackle problems related to image analysis. ANNs, just like SVMs, are often utilized in a supervised manner, but do not require the painstaking process of expert-defined key attributes. Instead, ANNs learn the important features from the images themselves \cite{cite07}. This is an obvious advantage when compared to traditional machine learning methods, but the complexity of these algorithms has prevented them from achieving mainstream use until recently. Even though the theory of ANNs was introduced in the 1950s, its due to the increase in computing power and availability of high quality datasets that has allowed research in this area to flourish \cite{cite05}
+
+\section{How ANNs Work}
+
+
+
+
 
 math used - sigmoid function - why what does this do
 
@@ -61,25 +69,7 @@ back propagation
 
 black box
 
-how compare to other classification algorithms.
-
-
-
-In a field that relies heavily on the perception of the reviewer, the occurrence of error is not especially surprising. 
-
-Describe the workflow of a radiologist. what is the history of the profession
-
-what is the error rate of radiologists. burnout
-
-machine learning - what is it. what kinds of problems can it solve
-
-why is image recognition well suited for deep learning
-
-how much data is there
-
 what is deep learning, how does it compare with human brains
-
-what is the history of neural networks, why is now the time that it's proliferating
 
 difference between types on neural networks, which are best suited to the tast
 
@@ -89,7 +79,7 @@ problems, controversies, how is it being accepted. differences in how images are
 
 applications of neural networks Applications – hip ortho, diabetic retinopathy, mammogram, melanoma detection, lung nodules, myositis
 
-The increased attention and effectiveness of these tools is brought on by several factors, including sufficient computing power and the availability of sufficiently large train sets needed by the ANN to understand patterns in the data \cite{editor00}.
+
 
 \section{Neural Networks}
 
