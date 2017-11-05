@@ -4,6 +4,7 @@ owner:
     name: Tyler Peterson
     url: https://github.com/bigdata-i523/hid331
 paper1:
+    review: Oct 22 17
     abstract: >
          Healthcare is increasingly focusing its efforts on keeping patients 
          out of the hospital. To do so, providers must serve their patients by focusing 
@@ -14,7 +15,7 @@ paper1:
     chapter: Health
     hid:
         - 331
-    status: 100% Oct 22 17
+    status: 100%
     title: Big Data Applications in Population Health Management
     type: latex
     url: https://github.com/bigdata-i523/hid331/paper1/report.pdf
@@ -28,7 +29,7 @@ paper2:
         - Tyler Peterson
     hid:
         - 331
-    status: 10%
+    status: 90%
     title: Big Data Applications in Using Neural Networks for Medical Image Analysis
     type: latex
     url: https://github.com/bigdata-i523/hid331/paper2/report.pdf

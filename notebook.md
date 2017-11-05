@@ -61,6 +61,8 @@
 * 10/26/17 Submitted project proposal
 * 11/01/17 Worked on paper 2
 * 11/02/17 Worked on paper 2
+* 11/03/17 Worked on paper 2
+* 11/04/17 Worked on paper 2
 
 
 # Meetings
