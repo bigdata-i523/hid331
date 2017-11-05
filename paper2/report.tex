@@ -26,8 +26,8 @@
 
 \begin{abstract}
 
- Medical image analysis is proving to be a promising domain for disruption by machine learning. The analysis of medical imagery has long been within the purview of radiologists, a specialization in medicine that reviews medical imaging to form diagnoses and advise on treatment options. Historically, radiologists have relied on their training, senses and years of experience to evaluate images for medical issues, such as the presence of tumors, lung nodules, and hip osteoarthritis. The presence of technology, generally referred to as computer-aided diagnosis (CAD) tools, has been growing over the last several decades, but modern computing power and sizable datasets have accelerated the effectiveness of these tools. Machine learning algorithms, especially artifical neural networks (ANN), are being leveraged to help identify abnormalities present in medical images at a high level of accuracy. Several research studies conclude that ANN techniques can match, and occassionally outperform, the abilities of radiologists. Big data and the application of advanced algorithms show promise for evolving our ability to successfully evaluate medical images and save lives in the process.      
-  
+  Medical image analysis is proving to be a promising domain for disruption by machine learning. The analysis of medical imagery has long been within the purview of radiologists, a specialization in medicine that reviews medical imaging to form diagnoses and advise on treatment options. Historically, radiologists have relied on their training, senses and years of experience to evaluate images for medical issues, such as the presence of tumors, lung nodules, and hip osteoarthritis. The presence of technology, generally referred to as computer-aided diagnosis (CAD) tools, has been growing over the last several decades, but modern computing power and sizable datasets have accelerated the effectiveness of these tools. Machine learning algorithms, especially artifical neural networks (ANN), are being leveraged to help identify abnormalities present in medical images at a high level of accuracy. Several research studies conclude that ANN techniques can match, and occassionally outperform, the abilities of radiologists. Big data and the application of advanced algorithms show promise for evolving our ability to successfully evaluate medical images and save lives in the process.
+
 \end{abstract}
 
 
@@ -51,45 +51,47 @@ Several improvements in the field of computing have increased the accuracy of CA
 
 \section{Machine Learning and Artificial Neural Networks}
 
-Broadly speaking, machine learning is a way of applying artificial intelligence to a problem through the analysis of data. Machine learning techniques assess the features, or attributes, of samples in a dataset to identify patterns in the data, and the resulting algorithm can be used to render conclusions about new inputs without human intervention \cite{cite05}. Medical imaging analysis presents what is referred to as a classification problem. The typical example of a classifcation problem is handwritten numerical digit recognition. In this example, a handwritten digit between 0 and 9 is fed into the algorithm, and the algorithm decides which of the ten digits, or classes, that handwritten digit is most liekly to belong. Specific to medical image analysis, the classifier detects abnormalities in images otherwise not present in images of the same area in healthy individuals, and renders a conclusion as to what that abnormality is.
+Broadly speaking, machine learning is a way of applying artificial intelligence to a problem through the analysis of data. Machine learning techniques assess the features, or attributes, of samples in a dataset to identify patterns in the data, and the resulting algorithm can be used to render conclusions about new inputs without human intervention \cite{cite05}. Medical image analysis presents what is referred to as a classification problem. The typical example of a classifcation problem is handwritten numerical digit recognition. In this example, a handwritten digit between 0 and 9 is fed into the algorithm, and the algorithm decides which of the ten digits, or classes, that handwritten digit is most likely to belong. Specific to medical image analysis, the classifier detects abnormalities in images otherwise not present in images of the same area in healthy individuals, and renders a conclusion as to what that abnormality is.
 
-There are several different machine learning techniques that have traditionally been used in classification problems, such as support vector machines (SVM). SVMs are an example of a supervised machine learning model, in that they work with labeled data. Every sample in the dataset includes the label, or correct answer, along with a value for each of the attributes. The SVM identifies patterns in the labeled samples to create an algorithm, and new, unlabeled samples can be processed by the algorithm and given a prediction. In the task of medical image analysis, attributes have historically been identified and designed by human experts \cite{cite06}. For example, an expert would identify abnormalities by codifying shape, texure, position and orientation of the structure \cite{cite07}.  In addition to this being labor intensive, the image features are specific to the immediate problem being explored and cannot be expected to work well for other image types \cite{cite06}.
+There are several different machine learning techniques that have traditionally been used in classification problems, such as support vector machines (SVM). SVMs are an example of a supervised machine learning model, meaning this method uses labeled data. Every sample in the dataset includes the label, or correct answer, along with a value for each of the attributes. The SVM identifies patterns in the labeled samples to create an algorithm, and new, unlabeled samples can be processed by the algorithm and given a prediction. In the task of medical image analysis, attributes have historically been identified and designed by human experts \cite{cite06}. For example, an expert would identify abnormalities by explicitly describing shape, texture, position and orientation of the abnormal biological structure \cite{cite07}.  In addition to this being labor intensive, the image features are specific to the immediate problem being explored and cannot be expected to work well for other image types \cite{cite06}.
 
-Artifical neural networks (ANN) are another class of machine learning techniques that are increasingly being leveraged to tackle problems related to image analysis. ANNs, just like SVMs, are often utilized in a supervised manner, but do not require the painstaking process of expert-defined key attributes. Instead, ANNs learn the important features from the images themselves \cite{cite07}. This is an obvious advantage when compared to traditional machine learning methods, but the complexity of these algorithms has prevented them from achieving mainstream use until recently. Even though the theory of ANNs was introduced in the 1950s, its due to the increase in computing power and availability of high quality datasets that has allowed research in this area to flourish \cite{cite05}
+Artifical neural networks (ANN) are another class of machine learning techniques that are increasingly being leveraged to tackle problems related to image analysis. ANNs, just like SVMs, are often utilized in a supervised manner, but do not require the painstaking process of expert-defined key attributes. Instead, ANNs learn the important features from the images themselves \cite{cite07}. This is an obvious advantage when compared to traditional machine learning methods, but the complexity of these algorithms has prevented the achievment of mainstream use until recently. The theory of ANNs was introduced in the 1950s, and research in this field has begun to flourish recently due to the increase in computing power and availability of high quality datasets \cite{cite05}.
 
 \section{How ANNs Work}
 
+The inspiration for the design of ANNs is drawn from the way a brain works. 
+
+\section{Applications in Medical Image Analysis}
+
+There are several specialities in which medical image analysis has been studied and applied for the purpose of computer-aided detection and diagnosis. ANNs have been used in studies to compare performance of radiologists to computerized approches. A study 
 
 
 
+Diabetic retinopathy is the third leading cause of blindness worldwide, contributing to 
+
+\section{Infrastructure}
+
+
+
+\section{Challenges}
+
+There are several challenges that may inhibit the success of widespread use of CAD tools built upon a neural network algorithm. First, overfitting occurs when an algorithm is trained based on a dataset that does not generalize well to examples outside of the data used to train the algorithm. Many studies demonstrating the value of ANNs were trained using relatively small datasets, and because the significant features present in a small dataset may not be the exact same features present in a large dataset, the algorithm derived from the small dataset may not perform well when analyzing images from the large dataset \cite{cite08} \cite{cite05}. This issue can be addressed by training algorithms on larger datasets, but of course requires access to larger datasets, longer training periods and more computing power.
+
+Second, algorithms derived from ANNs are frequently considered to be black boxes, meaning that the results are uninterpretable. This contrasts with several other types of machine learning techniques that produce equations that much more easily lend themselves to understanding which features are significant and why \cite{cite05}. Instill belief and trust in a sytem that is difficult, if not impossible, to explain is a barrier, even if that system produces accurate responses the vast majority of time.
+
+Third, ethical and legal considerations must be made. Adopters of this technology must grapple with questions pertaining to the liability if and when the system makes a prediction that harms a patient \cite{cite05}. If a radiologist is led to a conclusion by an algorithm, and the algorithm presents a false positive, a false negative or presents one conclusion while missing another, who is responsible for the error?
+
+Fourth, the ANNs are dependent on the quality and nature of the imaging data used to train algorithms. There is variability around the world in regards to the type and quality of imaging machines and the imaging protocols that dictate why and how images are taken \cite{cite05}. It's conceivable that two different imaging machines or two different techniques capturing two images of similar abnormalities could appear different to an algorith such that the conclusion is not the same. This issue could at least partially be addressed by sufficiently large datasets containing labeled images of abnormalities that were taken using machines of varying quality and executed using differing methods.  
+
+\section{Conclusion}
 
 math used - sigmoid function - why what does this do
 
 back propagation
 
-black box
-
 what is deep learning, how does it compare with human brains
 
 difference between types on neural networks, which are best suited to the tast
-
-how is this service being offered, which companies are selling, what are they doing
-
-problems, controversies, how is it being accepted. differences in how images are taken, quality
-
-applications of neural networks Applications – hip ortho, diabetic retinopathy, mammogram, melanoma detection, lung nodules, myositis
-
-
-
-\section{Neural Networks}
-
-\section{Infrastructure}
-
-big data computing, how long it takes to train on these problems. GPUs vs CPUs
-
-\section{Conclusion}
-
- This is my conclusion.
 
  
 \begin{acks}
