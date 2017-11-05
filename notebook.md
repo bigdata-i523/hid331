@@ -63,6 +63,7 @@
 * 11/02/17 Worked on paper 2
 * 11/03/17 Worked on paper 2
 * 11/04/17 Worked on paper 2
+* 11/05/17 Worked on paper 2
 
 
 # Meetings
