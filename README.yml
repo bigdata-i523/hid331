@@ -19,6 +19,7 @@ paper1:
     type: latex
     url: https://github.com/bigdata-i523/hid331/paper1/report.pdf
 paper2:
+    review: Nov 6 2017
     abstract: >
         Neural networks are increasingly being used to assist medical professional
         in their review of medical imaging studies. These models help to identify
