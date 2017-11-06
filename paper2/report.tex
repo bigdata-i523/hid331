@@ -72,7 +72,12 @@ A third study compares the performance of an ANN to two experienced physicians i
 
 \section{Infrastructure}
 
-Optimization of an ANN requires 
+Optimization of an ANNs can require billions of calculations, if not more, and the task therefore requires special hardware to help accomplish the task. At a very high level, there are two tasks involved in training a model. First, the input data is passed forward through the neurons which provides an output and an accompanying error rate. Second, with the error rate in hand, the weights of each synapse in the model are adjusted with the goal of lowering the error rate. This process is repeated many, many times. A common deep learning deployment called VGG16 has 16 hidden layers and roughly 140 million parameters \cite{cite14}. At each point in the network the computer must complete a matrix multiplication task, and the sheer volume of calculations means the task will take a significant amount of time to complete \cite{cite14}\cite{cite13}.
+
+Graphical proccessing units (GPUs) are better suited for this task than central processing units (CPUs). The key difference between GPUs and CPUs is that GPUs can parallelize the matrix operations necessary to train the model, whereas CPUs are far less able to do so. CPUs typically only have a handful of cores, while GPUs can contain hundreds, if not thousands \cite{cite13}. GPUs can perform several matrix operations at once and CPUs need to perform those sameoperations one at a time. For example, training a CNN with four hidden layers takes 8000 seconds with a CPU and only 1000 seconds with a GPU \cite{cite13}.
+
+This foundation has led to the creation of GPU-based super computers. The Commonwealth Scientific and Industrial Research Organization (CSIRO) acquired a new super computer made by Dell in 2017. Part of the infrastructure includes 114 PowerEdge C4130 server with Nvidia Tesla P100 GPUs, which includes over a million computing cores and 29TB of RAM \cite{cite15}.
+
 
 \section{Challenges}
 
