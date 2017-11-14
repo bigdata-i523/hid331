@@ -1,0 +1,150 @@
+\documentclass[sigconf]{acmart}
+
+\input{format/i523}
+
+\begin{document}
+\title{Big Data Applications in Predicting Hospital Readmissions}
+
+\author{Tyler Peterson}
+\orcid{1234-5678-9012}
+\affiliation{%
+  \institution{Indiana University - School of Informatics, Computing, and Engineering}
+  \streetaddress{711 N. Park Avenue}
+  \city{Bloomington} 
+  \state{Indiana} 
+  \postcode{47408}
+}
+\email{typeter@iu.edu}
+
+% The default list of authors is too long for headers}
+\renewcommand{\shortauthors}{G. v. Laszewski}
+
+
+\begin{abstract}
+
+Hospital readmissions occur when a patient is discharged from a hospital and subsequently readmitted to a hospital within a short time frame. Hospitals are held accountable for readmissions that occur within 30 days of the initial inpatient stay. In 2016, nearly 2,600 hospitals were penalized $528 million collectively for readmissions. Machine learning is increasingly being used to preemptively identify patients who have a high probability of being readmitted within 30 days. Utilizing a dataset that includes over 100,000 patients admissions that occurred at 130 US hospitals between 1999 and 2008, this project will attempt to build algorithms that identify high risk patients. Open-source Python tools such as scikit-learn, pandas and matplotlib will be used to prepare and model data. The process and accuracy of various machine learning techniques will be described and compared, and the paper will discuss additional data elements that may allow the algorithms to make more accurate predictions.
+ 
+\end{abstract}
+
+\keywords{hid331, i523, Big Data, Hospital Readmissions, Machine Learning, Classification, Python}
+
+
+\maketitle
+
+\section{Introduction}
+
+this is my introduction \cite{editor00}.
+the problem, how much it costs
+other programs administering penalties
+effects on individual patients and quality of life
+
+\section{Analysis}
+
+Describe the goal of the analysis, what I hope to accomplish
+
+\section{Logistic Regression}
+
+intuition
+pros and cons
+
+\subsection{Preprocessing}
+get dummies, change multi level categorical variables
+multicollinearity
+scale 0 to 1
+
+only include one admit per patient, samples need to be independent
+
+\subsection{Execute Analysis}
+fitting, changing parameters
+
+\subsection{Evaluate Analysis}
+specificity and sensitivity
+classification reports, f score
+predict method
+predict proba
+decision function
+ROC curve, AUC
+
+\section{Decision Trees}
+
+\subsection{Preprocessing}
+
+\subsection{Execute Analysis}
+
+\subsection{Evaluate Analysis}
+
+
+\section{Support Vector Machines}
+
+\subsection{Preprocessing}
+
+\subsection{Execute Analysis}
+
+\subsection{Evaluate Analysis}
+
+
+
+\section{Dimensionality Reduction}
+
+PCA
+
+\section{Model Optimization}
+
+Cross validation, GridsearchCV
+
+\section{How To Improve Analysis}
+
+Additional features, socioeconomic status(SES)
+
+additional studies that includes SES, do they improve?
+
+\section{Pitfalls}
+
+overfitting
+curse of dimensionality
+
+\section{Incorporating By The Bedside}
+bedside alerts, discharge planning, case management team assignment, home care
+
+\section{Previous Analyses}
+
+flaws in methodology
+additional data points
+
+\section{figures}
+
+In Figure \ref{f:fly} we show a fly. Please note that because we use
+just columwidth that the size of the figure will change to the
+columnwidth of the paper once we change the layout to final. CHnaging
+the layout to final should not be done by you. All figures will be
+listed at the end.
+
+\begin{figure}[!ht]
+  \centering\includegraphics[width=\columnwidth]{images/rossette.pdf}
+  \caption{Example caption}\label{f:fly}
+\end{figure}
+
+When copying the example, please do not check in the images from the
+examples into your images directory as you will not need them for your
+paper. Instead use images that you like to include. If you do not have
+any images, do not dreate the images folder.
+
+\section{Conclusion}
+
+This is my conclusion
+
+\begin{acks}
+
+  The authors would like to thank Dr. Gregor von Laszewski for his
+  support and suggestions to write this paper.
+
+\end{acks}
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{report} 
+
+\appendix
+
+\input{issues}
+
+\end{document}
