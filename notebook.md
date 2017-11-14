@@ -39,6 +39,8 @@
 * 10/21/17 Created public and private SSH keys, cloned my github repository onto my ubuntu virtual machine and committed changes to upstream repository using command line
 * 10/22/17 Installed Jupyter Notebook on ubuntu virtual machine via command line
 * 11/03/17 Worked on Jupyter notebook experiment
+* 11/13/17 Completed Jupyter experiment
+* 11/13/17 Completed precision/recall machine learning assignment
 
 
 # Writing
@@ -64,6 +66,7 @@
 * 11/03/17 Worked on paper 2
 * 11/04/17 Worked on paper 2
 * 11/05/17 Worked on paper 2
+* 11/10/17 - 11/13/17 Gathered research and references for project
 
 
 # Meetings
