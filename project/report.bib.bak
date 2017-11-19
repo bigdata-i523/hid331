@@ -30,6 +30,18 @@
   Timestamp                = {2017.11.15}
 }
 
+@Book{cite08,
+  Title                    = {Introduction to Machine Learning with Python},
+  Author                   = {Sarah Guido and Andreas Miller},
+  Editor                   = {O'Reilly Media},
+  Publisher                = {O'Reilly Media},
+  Year                     = {2017},
+  Edition                  = {1st Edition},
+
+  Owner                    = {petersontylerd},
+  Timestamp                = {2017.11.18}
+}
+
 @Article{cite05,
   Title                    = {Mining High-dimensional Administrative Claims Data to Predict Early Hospital Readmissions},
   Author                   = {Danning He and Simon C Mathews and Anthony N Kalloo and Susan Huftless},
@@ -71,6 +83,23 @@
   Doi                      = {DOI 10.1007/978-1-4614-7138-7},
   Owner                    = {petersontylerd},
   Timestamp                = {2017.11.15}
+}
+
+@Article{cite09,
+  Title                    = {Risk Prediction Models for Hospital Readmission},
+  Author                   = {Devan Kansagara and Honra Englander and Amanda Salanitro},
+  Journal                  = {Journal of the American Medical Association},
+  Year                     = {2011},
+
+  Month                    = {October},
+  Number                   = {15},
+  Pages                    = {1688-1698},
+  Volume                   = {306},
+
+  Doi                      = {doi:10.1001/jama.2011.1515},
+  Owner                    = {petersontylerd},
+  Timestamp                = {2017.11.18},
+  Url                      = {https://jamanetwork.com/journals/jama/fullarticle/1104511}
 }
 
 @Misc{cite00,
