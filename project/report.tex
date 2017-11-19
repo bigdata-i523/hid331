@@ -57,21 +57,29 @@ The goal of a machine learning algorithm is to minimize the error made in the pr
 \[Y = f(x) + \epsilon\]
 
 where \(Y\) is the actual outcome associated with the sample, \(X\) represents the attributes associated with each sample, \(f(X)\) is a function that represents the systematic information \(X\) provides about Y, and \(\epsilon\) is the error term describing the differences between the predicted value returned by \(f(X)\) and the actual value represented by \(Y\) \cite{cite03}. A perfect prediction means \(f(X)\) equals \(Y\) and \(\epsilon\) equals zero. In reality, the error term will rarely be zero, so each prediction yields a certain amount of error. The prediction accuracy for each sample is evaluated by this formula, and sum of the error terms from each evaluation represents the magnitude of error made by the model. The goal is make the sum of errors as low as possible \cite{cite03}.
-The error term is minimized through optimization of \(f(X)\), which is intended to describe the patterns that exist between the independent variables, represented by \(X\), and the dependent variable, represented by \(Y\). Said differently, the equation describes the relationship between the features and the label. The way that this function describes the  patterns is through coefficients weights. Each feature in the dataset is paired with a numerical weight that accentuates or diminishes the impact of a feature on the predicted outcome. The way in which these coefficients can be interpreted differs by which algorithm is being used, but the intuition remains the same: the coefficients are adjusted to highlight the important features in the dataset. Once the coefficients are determined, the model has been created.
+The error term is minimized through optimization of \(f(X)\), which is intended to describe the patterns that exist between the independent variables, represented by \(X\), and the dependent variable, represented by \(Y\). Said differently, the equation describes the relationship between the features and the label. The way that this function describes this relationship is through coefficient weights. Each feature in the dataset is paired with a numerical weight that accentuates or diminishes the impact of a feature on the predicted outcome. The way in which these coefficients can be interpreted differs by which algorithm is being used, but the intuition remains the same: the coefficients are adjusted to highlight the important features in the dataset. Once the coefficients are determined, the model has been fit to the data.
 
 \subsection{Training Set vs. Test Set}
 
 The coefficient weights of the model are defined by analyzing the samples in a dataset. In a practical sense, the value of a model depends on its ability to accurately predict the outcomes of new samples that were unseen at the time the model was determined \cite{cite08}. A model that performs well when making predictions with new data is said to generalize well.
 A machine learning practitioner will want to have confidence in the model's ability to generalize before deploying the model to make predictions in real-time, and will not necessarily have a new dataset of previously unseen samples to run through the model. To get around this, the original dataset is often split into two parts. The first part of the dataset is referred to as the training set and is used to determine the coefficient weights. The second part of the dataset is referred to as the test set, and this set is run through the model derived from the training set. The accuracy of the predictions on the test set is compared to the accuracy of the predictions on the training set to determine the extent to which the model generalizes \cite{cite08}.
-A model that has high training accuracy, but low test accuracy, is said to be overfitting the data. This means that the model, in its efforts to minimize \(\epsilon\), has become too complex and focuses too closely on the samples in the training data set. By chasing the 'noise' in the training data, the model no longer generalizes to the samples in the test set \cite{cite03}\cite{cite08}. A model can also underfit the data, which means the model is failing to capture the relationship between \(Y\) and \(X\)and will likely perform poorly on both the training and test datasets.
+A model that has high training accuracy, but low test accuracy, is said to be overfitting the data. This means that the model, in its efforts to minimize \(\epsilon\), has become too complex and focuses too closely on the samples in the training data set. By chasing patterns in the training data caused moreso by random chance than by the true characteristics of \(X\), the model no longer generalizes to the unseen samples in the test set \cite{cite03}\cite{cite08}. An overfit model describes characteristics in the training data that are not in the test data, leading to poor predictions on the test sett.
+A model can also underfit the data, which means the model is failing to capture the relationship between \(Y\) and \(X\)and will likely perform poorly on both the training and test datasets.
 
 \subsection{The Bias/Variance Trade-off}
 
-M
+Bias and Variance are two important components related to training models using machine learning. Variance describes the extent to which a model changes due to small adjustments in the training data. Since the training data used to fit a model can vary, it is reasonable to expect that a model will change when different samples are selected into the training dataset, but ideally the model changes only slightly \cite{cite03}. If a model is quite complex and is overfitting the training data, then slight changes in the training samples can have a large effect on the coefficient weights. Low variance is preferable \cite{cite03}.
+Bias refers to the error that occurs when trying to describe a phenomenon using a derived model. For example, if a machine learning technique assumes a linear relationship between the independent and dependent variables, but the relationship is highly non-linear, then the selected technique will result in high bias \cite{cite03}. The chosen approach to the problem is not well-suited to the task at hand and will make predicitons that are far from reality.
+As the method for training a model becomes more complex and able to fit to the perceived important important in the training data, variance will increase and bias will decrease. The model will become more flexible and therefore more sensitive to variationa in the training data, but will reduce bias by reducing the prediction error. The important part of the relationship between these two components is that as a model becomes more complex, the bias decreases more rapidly than the variance increases, so the trade-off of increasing variance while decreasing bias leads to a net gain in improvement of the model \cite{cite03}. However, there is a point at which the model becomes too complex and the net gain begins to disappear. Increased model complexity leads to significantly higher variance without appreciable improvement in bias \cite{cite03}. 
 
 \subsection{Model Evaluation}
 
-Several statistics can be used for evaluating model accuracy. Sensitivity is the true positive detection rate. This is the percentage of positive occurrences that are successfully identified \cite{cite12}. A false positive may lead to unnecessary testing, unecessary expenses and unecessary stress on the patient who has been led to believe they have a certain condition. Specificity is the true negative detection rate. This is the percentage of negative occurrences that are successfully identified \cite{cite12}. A false negative may lead to a missed diagnosis, resulting in delayed treatment and a potentially avoidable death in some cases. Sensitivity and specificity can be assessed together by the receiver operating characteristic (ROC) curve. The ROC curve plots the true positive rate against the false positive rate (100 minus the true negative rate) for varying decision thresholds. This illustrates the trade-off between sensitivity and specificity and can provide guidance on which decision threshold is appropirate for the task \cite{cite12}. ROC curves are often leveraged to evaluate the performance of models by calculating the area under the ROC curve, also known as the AUC. The goal is the maximize the AUC value, and that value points to the optimal balance between sensitivity and specificity \cite{cite12}.
+Several statistics can be used for evaluating model accuracy. For classification problems, a basic technique for evaluation is the confusion matrix. Figure 1 shows the general framework of a confusion matrix which shows the counts of each type of prediction and the accuracy of that prediciton. A true positive is an outcome that is predicted to be positive and is positive in reality \cite{cite12}. A true negative is an outcome that is predicted to be negative and is negative in reality \cite{cite12}. These are the preferred responses. In the context of hospital readmissions, a true positive is a prediction that a patient in the test dataset, according to the trained model, will be readmitted to the hospital within 30 days, and this occurs in reality. A true negative is a prediction that a patient in the test dataset will not be readmitted, and this occurs in reality.
+On the other hand, a false positive is an outcome that is predicted to be positive but is negative in reality \cite{cite12}. A false negative is an outcome that is predicted to be negative but is positive in reality. These are errors in prediction \cite{cite12}. If a healthcare provider acts on a false positive, that could mean that a patient, who without intervention would not have been readmitted within 30 days, received resources and attention that were not necessary. In the case of a false negative, this means a patient who eventually did get readmitted within 30 days could have benefited from additional attention and resource from a healthcare team. 
+These four components - true positives, true negative, false positives, and false negatives - can be combined to create more nuanced metrics. Two of those metrics are sensitivity and specificity. Sensitivity refers to the true positive detection rate. This is the percentage of positive occurrences that are successfully identified \cite{cite12}. Specificity is the true negative detection rate. This is the percentage of negative occurrences that are successfully identified \cite{cite12}.
+In the context of readmissions, low sensitivity means many patients who eventually get readmitted are not predicted to be high-risk before the readmission occurs. Low specifity means that many patients who would not otherwise be readmitted are predicted to be readmitted. There is a trade-off between sensitivity and specificity, and an improvement in one often causes the other to worsen. Preference toward sensitivity or specificity often depends on the cost of incorrect predictions.
+A patient who otherwise would not be readmitted who is predicted to be high-risk is the type of case that will incur unnecessary resources. While this requires healthcare providers to invest resources that are not needed, the readmission is nevertheless avoided and there are potentially other benefits achieved by the hospital, such as increased satisfaction of the patient and their family. On the other hand, a patient who eventually gets readmitted but was not idenfitifed beforehand will likely be costly to a hospital in a couple ways. The provider must dedicate resources to stabilizing and healing the patient, while also incurring penalties if this type of readmission occurs frequently. If the expense of an unexpected readmission is higher than the expense of deploying unncecessary resources to low-risk patients, then a model that favors higher sensitivity at the expense of lower specificity is preferable.
+Sensitivity and specificity can be assessed in tandem by the receiver operating characteristic (ROC) curve, which quite useful for evaluating supervised classification models. The ROC curve plots the true positive rate against the false positive rate (100 minus the true negative rate) for varying decision thresholds. This illustrates the trade-off between sensitivity and specificity and can provide guidance on which decision threshold is appropirate for the task \cite{cite12}. ROC curves are often leveraged to evaluate the performance of models by calculating the area under the ROC curve, also known as the AUC. The goal is the maximize the AUC value, and that value points to the optimal balance between sensitivity and specificity \cite{cite12}.
 
 \section{Logistic Regression}
 
@@ -81,18 +89,15 @@ Logistic regression models the probability that a sample belongs to a certain cl
 
 \[p(x) = Pr(Y = 1 | X)\]
 
-In the context of predicting hospital readmissions, this translates to 'the likelihood that a patient will be readmitted within 30 days of discharge given the patient's characteristics. To determine the probability, logistic regression utilizes the logistc function, which takes in the coefficient weights and feature responses for each sample and returns a number between 0 and 1\cite{cite08}. In the case of multivariate logistc regression, the model takes the form:
+In the context of predicting hospital readmissions, this translates to 'the likelihood that a patient will be readmitted within 30 days of discharge given the patient's characteristics.' To determine the probability, logistic regression utilizes the logistc function, which takes in the coefficient weights and feature responses for each sample and returns a the probability - a number between 0 and 1\cite{cite08}. In the case of logistc regression involving multiple features, the model takes the form:
 
 \[ f(x) =\frac{e^{\beta_0 + \beta_1X_1 + ... + \beta_pX_p}}{1 + e^{\beta_0 + \beta_1X_1 + ... + \beta_pX_p}}  \]
 
 The model is fit to the data by adjusting the coefficient weights using a method called maximum likelihood. The intuition of this process is that the estimates for the coefficients are set such that the predicted probability of a certain outcome corresponds as closely as possible to the actual label of that sample. This means that the ideal coefficient weights, when plugged into the logistc function, return a number close to one for the readmitted patients and a number close to zero for the patients not readmitted \cite{cite08}.
 
-The equation  \cite{cite08}
-
-intuition
-pros and cons
-
 \subsection{Logistic Regression - Preprocessing}
+
+
 get dummies, change multi level categorical variables
 multicollinearity
 scale 0 to 1
@@ -113,6 +118,8 @@ ROC curve, AUC
 
 \section{Decision Trees}
 
+Decision trees
+
 \subsection{Decision Trees - Intuition}
 
 \subsection{Decision Trees - Preprocessing}
@@ -123,6 +130,8 @@ ROC curve, AUC
 
 
 \section{Support Vector Machines}
+
+SVMs
 
 \subsection{Support Vector Machines - Intuition}
 
@@ -140,7 +149,8 @@ PCA
 
 \section{Model Optimization}
 
-Cross validation, GridsearchCV
+Cross validation is a strategy for estimating the test error by cycling through the training data \cite{cite03}
+GridsearchCV
 
 \section{How To Improve Analysis}
 
