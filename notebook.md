@@ -67,7 +67,11 @@
 * 11/04/17 Worked on paper 2
 * 11/05/17 Worked on paper 2
 * 11/10/17 - 11/13/17 Gathered research and references for project
-
+* 11/15/17 Worked on project report
+* 11/18/17 Worked on project report
+* 11/18/17 Worked on Python scripts for project
+* 11/19/17 Worked on project report
+* 11/19/17 Worked on Python scripts for project
 
 # Meetings
 
