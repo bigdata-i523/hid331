@@ -22,12 +22,11 @@
 
 \begin{abstract}
 
-  Hospital readmissions occur when a patient is discharged from a hospital and subsequently readmitted to a hospital within a short time frame. Hospitals are held accountable and penalized for readmissions that occur within 30 days of the initial inpatient stay. In 2016, nearly 2,600 hospitals were penalized $528 million collectively for readmissions. Machine learning is increasingly being used tobuild models that predict if a patient has a high probability of being readmitted. Healthcare providers possess every-growing stores of medical data that are essential for building accurate predictive models. While most of this information is private and not widely available for research, there are a few public datasets that researchers can use to build models and gain a better understand what kind of information is significant in the task of identifying high-risk patients. One such dataset includes over 100,000 patient admissions that occurred at 130 US hospitals between 1999 and 2008 and includes many features that can be used to build models. Open-source Python tools such as scikit-learn, pandas and matplotlib have tools necessary for preparing, modeling and visualizing data. These tools can be used to model the problem of hospital readmissions by creating classifiers that assign, or classify, samples based on the probability of readmission. Machine learning techniques such as logistic regression, support vector machines and decision trees are ideal for modeling data for classification problems, and these open-source tools include methods for assessing and optimizing the algorithms. The effectiveness of machine learning in classifying patients for risk of readmission is a growing topic of study and implementation of tools for assisting health care providers will likely increase rapidly in the near future.
+  Hospital readmissions occur when a patient is discharged from a hospital and subsequently readmitted to a hospital within a short time frame. Hospitals are held accountable and penalized for readmissions that occur within 30 days of the initial inpatient stay. In 2016, nearly 2,600 hospitals were penalized \$528 million collectively for readmissions. Machine learning is increasingly being used tobuild models that predict if a patient has a high probability of being readmitted. Healthcare providers possess every-growing stores of medical data that are essential for building accurate predictive models. While most of this information is private and not widely available for research, there are a few public datasets that researchers can use to build models and gain a better understand what kind of information is significant in the task of identifying high-risk patients. One such dataset includes over 100,000 patient admissions that occurred at 130 US hospitals between 1999 and 2008 and includes many features that can be used to build models. Open-source Python tools such as scikit-learn, pandas and matplotlib have tools necessary for preparing, modeling and visualizing data. These tools can be used to model the problem of hospital readmissions by creating classifiers that assign, or classify, samples based on the probability of readmission. Machine learning techniques such as logistic regression, support vector machines and decision trees are ideal for modeling data for classification problems, and these open-source tools include methods for assessing and optimizing the algorithms. The effectiveness of machine learning in classifying patients for risk of readmission is a growing topic of study and implementation of tools for assisting health care providers will likely increase rapidly in the near future.
  
 \end{abstract}
 
 \keywords{hid331, i523, Big Data, Hospital Readmissions, Machine Learning, Classification, Python}
-
 
 \maketitle
 
@@ -44,25 +43,68 @@ One study that demonstrates the power of incorporating EMR data was conducted at
 
 \section{Analysis}
 
-Though the data used by institutions to build models is not widely available, there are a few public  datasets that can be used by machine learning practitioners to better understand how predictive modeling techniques can be applied to the task of predicting readmissions. One such dataset is a subset of de-identified information from the Cerner Corporation's Health Facts database, which is comprised of comprehensive clinical records voluntarily provided by hospitals across the United States. The information contained within this dataset includes diagnoses defined by ICD-9-CM codes, in-hospital procedures, hospital characteristics, individual provider information, lab data, pharmacy data, and demographic data, such as age, gender and race. A total of 55 attributes were gathered for each encounter \cite{cite11}.
-Researchers extracted a subset of 101,766 encounters from the nearly 74 million records in the Health Facts database for the purpose of studying diabetic inpatient encounters. The admissions span 10 years from 1999 to 2008, and occurred at 130 different hospitals across the United States. The researchers used the following criteria to narrow down the dataset: 1) the encounter is an inpatient encounter 2) it was a diabetic encounter, meaning at least one diabetic diagnosis code was associated with the episode of care 3) The length of stay was between 1 and 14 days 4) the patient had at least one lab test 5) the patient was administered at least one medication \cite{cite11}. This dataset is now publicly available on the UCI Machine Learning Repository
+Though the data used by institutions to build models is not widely available, there are a few public  datasets that can be used by machine learning practitioners to better understand how predictive modeling techniques can be applied to the task of predicting readmissions. One such dataset is a subset of de-identified information from the Cerner Corporation's Health Facts database, which is comprised of comprehensive clinical records voluntarily provided by hospitals across the United States \cite{cite11}.
+Researchers extracted a subset of 101,766 encounters from the nearly 74 million records in the Health Facts database for the purpose of studying diabetic inpatient encounters. The admissions span 10 years from 1999 to 2008, and occurred at 130 different hospitals across the United States. The researchers used the following criteria to narrow down the dataset: 1) the encounter is an inpatient encounter 2) it was a diabetic encounter, meaning at least one diabetic diagnosis code was associated with the episode of care 3) The length of stay was between 1 and 14 days 4) the patient had at least one lab test 5) the patient was administered at least one medication \cite{cite11}. This dataset is now publicly available on the UCI Machine Learning Repository.
+The dataset contains 55 attributes, or features, that are potentially related to hospital readmissions, including diagnoses defined by ICD-9-CM codes, in-hospital procedures, hospital characteristics, individual provider information, lab data, pharmacy data, and demographic data, such as age, gender and race. Each patient encounter record also has a label indicating whether or not the patient was readmitted within 30 days. Since the dataset includes these labels, supervised machine learning techniques can be used, as opposed to unsupervised machine learning techniques. Further, since the model will need to predict whether or not a patient will be readmitted within 30 days, this is a binary classificaiton problem. The model will classify each patient encounter has highly likely of readmission within 30 days or not likely of readmission within 30 days.
+
+\section{Overview of Supervised Machine Learning}
+
+Several algorithms can be used for supervised classification problems, including logistic regression, support vector machines (SVM) and decision trees. An open-source Python library called scikit-learn has modules for training and evaluating models built using each of these three types of algorithms. Though there are several types of algorithms, there are several fundamentals of machine learning that apply to all predictive modeling techniques
+
+\subsection{Minimization of Error}
+
+The goal of a machine learning algorithm is to minimize the error made in the predictions. The general form of this concept can be represented by the formula:
+\[
+Y = f(x) + e
+\]
+where \[Y\] is the actual value associated with the sample, \[f(X)\] is a function that represents the systematic information \[X\] provides about Y and returns a predicted value, and \[e\] is the error term describing the differences between the predicted value returned by \[f(X)\] and the actual value represented by \[Y\]. A perfect prediction means \[f(X)\] equals \[Y\] and \[e\] equals zero. In reality, the error term will rarely be zero, so each prediction yields a certain amount of error. The prediction accuracy for each sample is evaluated by this function, and sum of the error terma from each evaluation represents the magnitude of error made by the model. The goal is make the sum of errors as low as possible \cite{cite08}.
+The error term is minimized through optimization of \[f(X)\], which is intended to describe the patterns that exist between the independent variables and the dependent variable. Said differently, the equation describes the relationship between the features and the label. The way that this function describes the  patterns is through coefficients. Each feature in the dataset is paired with a numerical weight that accentuates or diminishes the impact of a feature on the predicted outcome. The way in which these coefficients can be interpreted differs by which algorithm is being used, but the intuition remains the same: the coefficients are adjusted to accentuate the important features in the dataset. Once the coefficients are determined, the resulting equation is the model.
+
+\subsection{Training Set Vs. Test Set}
+
+The coefficient weights of the model are defined by analyzing the samples in a dataset. In a practical sense, the value of a model comes from its ability to successfully predict the outcomes of samples that are fed through the model after the model is defined. A model that performs well in making predictions with new data is said to generalize well to new data. Even though the new data was unavailable at the time the model was optimized, it still functions as an accurate predictor.
+A machine learning practitioner will want to have some confidence in the model's ability to generalize before deploying the model, and will not necessarily have a new dataset of previously unseen samples to run through the model immediately after the initial training of the model. To get around this, a dataset is often split into two parts. The first part of the dataset is referred to as the training set and is used to determine the coefficient weights. The test data is then run through the model derived from the training set, and the accuracy of the predictions on the test set is compared to the accuracy of the predictions on the training set to determine the extent to which the model generalizes.
+A model that has high training accuracy, but low test accuracy, is said to be overfitting the data. This means that the model is made to be overly complicated by noise in the training data
+overfitting/underfitting
+
+\subsection{The Bias/Variance Trade-off}
+
+
+Several statistics can be used for evaluating model accuracy. Sensitivity is the true positive detection rate. This is the percentage of positive occurrences that are successfully identified \cite{cite12}. A false positive may lead to unnecessary testing, unecessary expenses and unecessary stress on the patient who has been led to believe they have a certain condition. Specificity is the true negative detection rate. This is the percentage of negative occurrences that are successfully identified \cite{cite12}. A false negative may lead to a missed diagnosis, resulting in delayed treatment and a potentially avoidable death in some cases. Sensitivity and specificity can be assessed together by the receiver operating characteristic (ROC) curve. The ROC curve plots the true positive rate against the false positive rate (100 minus the true negative rate) for varying decision thresholds. This illustrates the trade-off between sensitivity and specificity and can provide guidance on which decision threshold is appropirate for the task \cite{cite12}. ROC curves are often leveraged to evaluate the performance of models by calculating the area under the ROC curve, also known as the AUC. The goal is the maximize the AUC value, and that value points to the optimal balance between sensitivity and specificity \cite{cite12}.
 
 \section{Logistic Regression}
+
+\subsection{Logistic Regression - Intuition}
+
+Logistic regression models the probability that a sample belongs to a certain class given the feature values of the sample \cite{cite08}. This probability can be represented as:
+
+\[
+p(x) = Pr(Y = 1 | X)
+\]
+
+In the context of predicting hospital readmissions, this translates to 'the likelihood that a patient will be readmitted within 30 days of discharge given the patient's characteristics. To determine the probability, logistic regression utilizes the logistc function, which takes in the coefficient weights and feature responses for each sample and returns a number between 0 and 1\cite{cite08}. In the case of multivariate logistc regression, the model takes the form:
+
+logistic function
+
+The model is fit to the data by adjusting the coefficient weights using a method called maximum likelihood. The intuition of this process is that the estimates for the coefficients are set such that the predicted probability of a certain outcome corresponds as closely as possible to the actual label of that sample. This means that the ideal coefficient weights, when plugged into the logistc function, return a number close to one for the readmitted patients and a number close to zero for the patients not readmitted \cite{cite08}.
+
+The equation  \cite{cite08}
 
 intuition
 pros and cons
 
-\subsection{Preprocessing}
+\subsection{Logistic Regression - Preprocessing}
 get dummies, change multi level categorical variables
 multicollinearity
 scale 0 to 1
 
 only include one admit per patient, samples need to be independent
 
-\subsection{Execute Analysis}
+\subsection{Logistic Regression - Execute Analysis}
 fitting, changing parameters
 
-\subsection{Evaluate Analysis}
+\subsection{Logistic Regression - Evaluate Analysis}
+
 specificity and sensitivity
 classification reports, f score
 predict method
@@ -72,20 +114,24 @@ ROC curve, AUC
 
 \section{Decision Trees}
 
-\subsection{Preprocessing}
+\subsection{Decision Trees - Intuition}
 
-\subsection{Execute Analysis}
+\subsection{Decision Trees - Preprocessing}
 
-\subsection{Evaluate Analysis}
+\subsection{Decision Trees - Execute Analysis}
+
+\subsection{Decision Trees - Evaluate Analysis}
 
 
 \section{Support Vector Machines}
 
-\subsection{Preprocessing}
+\subsection{Support Vector Machines - Intuition}
 
-\subsection{Execute Analysis}
+\subsection{Support Vector Machines - Preprocessing}
 
-\subsection{Evaluate Analysis}
+\subsection{Support Vector Machines - Execute Analysis}
+
+\subsection{Support Vector Machines - Evaluate Analysis}
 
 
 
@@ -125,7 +171,7 @@ the layout to final should not be done by you. All figures will be
 listed at the end.
 
 \begin{figure}[!ht]
-  \centering\includegraphics[width=\columnwidth]{images/rossette.pdf}
+  \centering\includegraphics[width=\columnwidth]{images/rosette.pdf}
   \caption{Example caption}\label{f:fly}
 \end{figure}
 

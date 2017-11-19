@@ -15,6 +15,20 @@
   Url                      = {http://files.kff.org/attachment/Issue-Brief-Fewer-Hospital-U-turns-The-Medicare-Hospital-Readmission-Reduction-Program}
 }
 
+@Article{cite12,
+  Title                    = {Sensitivity, Specificity, Receiver Operating Characteristic (ROC) Curves and Likelihood Ratios: Communicating the Performance of Diagnostic Tests},
+  Author                   = {Christopher M Florkowski},
+  Journal                  = {Clinical Biochemistry Review},
+  Year                     = {2008},
+
+  Month                    = {August},
+  Pages                    = {S83-S87},
+  Volume                   = {29},
+
+  Owner                    = {petersontylerd},
+  Timestamp                = {2017.11.05}
+}
+
 @Article{cite02,
   Title                    = {A Comparison of Models for Predicting Early Hospital Readmissions},
   Author                   = {Joseph Futoma and Jonathan Morris and Joseph Lucas},
@@ -102,6 +116,19 @@
   Url                      = {https://jamanetwork.com/journals/jama/fullarticle/1104511}
 }
 
+@Misc{cite10,
+  Title                    = {Analyze this! Administrative claims data or EHR data in health services research?},
+
+  Author                   = {Paul LaBrec},
+  HowPublished             = {Online},
+  Month                    = {January},
+  Year                     = {2016},
+
+  Owner                    = {petersontylerd},
+  Timestamp                = {2017.11.18},
+  Url                      = {https://www.3mhisinsideangle.com/blog-post/analyze-this-administrative-claims-data-or-ehr-data-in-health-services-research/}
+}
+
 @Misc{cite00,
   Title                    = {Medicare's Readmission Penalties Hit New High},
 
@@ -130,6 +157,22 @@
   Owner                    = {petersontylerd},
   Timestamp                = {2017.10.08},
   Url                      = {https://www.ncbi.nlm.nih.gov/pubmed/27896982}
+}
+
+@Article{cite11,
+  Title                    = {Impact of HbA1c Measurement on Hospital Readmission Rates: Analysis of 70,000 Clinical Database Patient Records},
+  Author                   = {Beata Strack and Jonathan P DeShazo and Chris Gennings and Juan Olmo and Sebastian Ventura and Krzysztof J Cios and John N Clore},
+  Journal                  = {BioMed Research International},
+  Year                     = {2014},
+
+  Month                    = {April},
+  Pages                    = {1-11},
+  Volume                   = {2014},
+
+  Doi                      = {dx.doi.org/10.1155/2014/781670},
+  Owner                    = {petersontylerd},
+  Timestamp                = {2017.11.18},
+  Url                      = {https://www.hindawi.com/journals/bmri/2014/781670/}
 }
 
 @Article{cite04,
