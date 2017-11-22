@@ -122,7 +122,8 @@ ROC curve, AUC
 
 Tree-based machine learning techniques are conceptually simple strategies for modeling data. Decision trees segment the observations based on a series of if/else statements, ultimately leading to a class prediction \cite{cite08}. The sequence of if/else rules can be visualized as an upside-down tree. The first node of the tree is called the root node and contains all observations. The root node is split into two nodes by applying an if/else rule to a specific feature in the observations.\cite{cite13}. An example if/else rule might be 'patient received hemoglobin A1c test', and each observations is separated into different nodes depending on whether than observations received a hemoglobin A1c test. Each node that splits into additional nodes is referred to as a nonterminal node \cite{cite13}. A node that does not furhter split that data is referred to as a terminal node, which predicts a class for all observations that have followed each branch into that particular node \cite{cite13}.
 Decision trees use a top-down, greedy approach to segment data called recursive binary splitting \cite{03}. The 'top-down' part of the term means that all observations are grouped together at the start of the tree and then subsequently split into separate branches. The approach is referred to as greedy because the if/else question chosen at each branch is the best split possible at that particular branch. This is a potentially short-sighted strategy, hence the name greedy, because it is possible that a rule that creates the best split at one particular node may not benefit the model in the long term as well as the second or third best split \cite{cite03}.
-Recursive binary splitting determines the best split by iterating through each feature and splitting the observations by various if/else rules. The combination of feature and if/else rule that yields the lowest classification error rate, and therefore is most informative about how to separate the observations by class, is chosen as the rule for that particular node \cite{cite03} \cite{cite08}. The classification error rate can be determined by dividing the number of observations that are in the minority in a region by the total number of observations in that region.
+Recursive binary splitting determines the best split by iterating through each feature and splitting the observations by various if/else rules. The combination of feature and if/else rule that yields the lowest classification error rate, and therefore is most informative way to separate the observations by class, is chosen as the rule for that particular node \cite{cite03} \cite{cite08}. The classification error rate can be determined by dividing the number of observations that are in the minority in a region by the total number of observations in that region.
+The two resulting nonterminal nodes can be split by another recursive binary split, over and over, until each leads to a terminal that scores a classification error rate of zero, but a tree of this complexity will likely be overfitting the training data \cite{cite03}. There are several strategies for preventing overfitting, such as pruning and limiting the depth of the tree to a certain number of terminal nodes. 
 
 \subsection{Decision Trees - Preprocessing}
 
@@ -133,9 +134,11 @@ Recursive binary splitting determines the best split by iterating through each f
 
 \section{Support Vector Machines}
 
-SVMs
-
 \subsection{Support Vector Machines - Intuition}
+
+A support vector machine (SVM) is a classifier that can be used to separate data using linear and non-linear boundaries. There are a few subtypes of SVMs. A maximal margin classifier seeks to perfectly separate the observations into their respective classes by using a linear boundary. As this is often not possible given the distribution of the observations, a more lenient type of SVM is the support vector classifier (SVC). An SVC is a classifier that resigns to the fact that a few observations will be misclassified but strives to achieve an overall better separating boundary \cite{cite03}.
+In two dimensional space, SVCs determine a line the best separates the classes. In three dimensional space, SVCs separate the classes using a plane. In four dimensional space and beyond, SVCs use a 'hyperplane' to draw a boundary between the classifiers. The term 'support vector' comes from the concept that the boundary is drawn in a way that, in addition to minimizing error, it maximizes the distance between the boundary and the nearest observations \cite{cite03}. These observations are the support vectors.
+If the observations are not linearly-separable, an SVM can be used to advance upon SVCs by drawing non-linear boundaries \cite{cite03}. In all subtypes of SVMs, unseen observations are classified based on which side of the hyperplane that the observations appears.
 
 \subsection{Support Vector Machines - Preprocessing}
 
@@ -145,11 +148,9 @@ SVMs
 
 
 
-\section{Dimensionality Reduction}
-
-PCA
-
 \section{Model Optimization}
+
+we don't know the test error, CV can help
 
 Cross validation is a strategy for estimating the test error by cycling through the training data \cite{cite03}
 GridsearchCV
@@ -162,7 +163,6 @@ additional studies that includes SES, do they improve?
 
 \section{Pitfalls}
 
-overfitting
 curse of dimensionality
 
 \section{Incorporating By The Bedside}
