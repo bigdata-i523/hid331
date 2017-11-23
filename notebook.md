@@ -75,6 +75,7 @@
 * 11/20/17 Worked on project report
 * 11/21/17 Worked on project report
 * 11/22/17 Worked on Python scripts for project
+* 11/23/17 Worked on Python scripts for project
 
 # Meetings
 
