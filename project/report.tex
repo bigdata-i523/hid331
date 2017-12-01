@@ -81,6 +81,21 @@ In the context of readmissions, low sensitivity means many patients who eventual
 A patient who otherwise would not be readmitted who is predicted to be high-risk is the type of case that will incur unnecessary resources. While this requires healthcare providers to invest resources that are not needed, the readmission is nevertheless avoided and there are potentially other benefits achieved by the hospital, such as increased satisfaction of the patient and their family. On the other hand, a patient who eventually gets readmitted but was not idenfitifed beforehand will likely be costly to a hospital in a couple ways. The provider must dedicate resources to stabilizing and healing the patient, while also incurring penalties if this type of readmission occurs frequently. If the expense of an unexpected readmission is higher than the expense of deploying unncecessary resources to low-risk patients, then a model that favors higher sensitivity at the expense of lower specificity is preferable.
 Sensitivity and specificity can be assessed in tandem by the receiver operating characteristic (ROC) curve, which quite useful for evaluating supervised classification models. The ROC curve plots the true positive rate against the false positive rate (100 minus the true negative rate) for varying decision thresholds. This illustrates the trade-off between sensitivity and specificity and can provide guidance on which decision threshold is appropirate for the task \cite{cite12}. ROC curves are often leveraged to evaluate the performance of models by calculating the area under the ROC curve, also known as the AUC. The goal is the maximize the AUC value, and that value points to the optimal balance between sensitivity and specificity \cite{cite12}.
 
+\subsection{Data Preparation}
+
+
+The data needs to be cleaned up so that the model can evaluate the features properly. For logistic regression and support vector machines, the data must be numerical. Columns such as 'num\_procedures' and 'num\_lab\_procedures' contain numerical data, and are ready to use as-is. Other columns such as 'A1Cresult' includes values such as '', '', and ''. These values must be encoded to work properly. The Python library Pandas has a funciton called 'get\_dummies' will create columns that include two values, 0's and 1's, for each unique value in a column. In the case of the column 'A1creslt', this process will yield X columns, one for each unique value. For each observation, a 1 will appear in the column corresponding to value of the original feature.
+Consideration must be given to problems that can arise from transofrming categorical variables in this manner.  
+
+For decision tree methods, the 
+get dummies, change multi level categorical variables
+delete columns and why - all 1's, all 0's redundancy between med specialty and diagnosis categories
+cleanup of diagnosis codes
+multicollinearity
+scale 0 to 1
+
+only include one admit per patient, samples need to be independent
+
 \section{Logistic Regression}
 
 \subsection{Logistic Regression - Intuition}
@@ -98,11 +113,7 @@ The model is fit to the data by adjusting the coefficient weights using a method
 \subsection{Logistic Regression - Preprocessing}
 
 
-get dummies, change multi level categorical variables
-multicollinearity
-scale 0 to 1
 
-only include one admit per patient, samples need to be independent
 
 \subsection{Logistic Regression - Execute Analysis}
 fitting, changing parameters
