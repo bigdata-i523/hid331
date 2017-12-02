@@ -78,6 +78,8 @@
 * 11/23/17 Worked on Python scripts for project
 * 11/27/17 Worked on Python scripts for project
 * 11/29/17 Worked on Python scripts for project
+* 12/01/17 Worked on Python scripts for project
+* 12/02/17 Worked on Python scripts for project
 
 # Meetings
 

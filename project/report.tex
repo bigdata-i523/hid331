@@ -21,7 +21,7 @@
 
 \begin{abstract}
 
-  Hospital readmissions occur when a patient is discharged from a hospital and subsequently readmitted to a hospital within a short time frame. Hospitals are held accountable and penalized for readmissions that occur within 30 days of the initial inpatient stay. In 2016, nearly 2,600 hospitals were penalized \$528 million collectively for readmissions. Machine learning is increasingly being used to build models that predict if a patient has a high probability of being readmitted, which allows hospital staff to prioritize resources around high-risk patients and potentially prevent the otherwise likely readmission. Healthcare providers possess every-growing stores of medical data that are essential for building accurate predictive models. While most of this information is private and not widely available for research, there are a few public datasets that researchers can use to build models and gain a better understand what kind of information is significant in the task of identifying high-risk patients. One such dataset includes over 100,000 patient admissions that occurred at 130 US hospitals between 1999 and 2008 and includes many features that can be used to build models. Open-source Python tools such as scikit-learn, pandas and matplotlib have tools necessary for preparing, modeling and visualizing data. These tools can be used to define algorithms that describe the problem of hospital readmissions by creating classifiers that assign samples based on the probability of readmission. Machine learning techniques such as logistic regression, support vector machines and decision trees are ideal for modeling data for classification problems, and these open-source tools include methods for assessing and optimizing the algorithms. The effectiveness of machine learning in classifying patients for risk of readmission is a growing topic of study and implementation of tools for assisting healthcare providers will likely continue to increase.
+  Hospital readmissions occur when a patient is discharged from a hospital and subsequently readmitted to a hospital within a short time frame. Hospitals are held accountable and penalized for readmissions that occur within 30 days of the initial inpatient stay. In 2016, nearly 2,600 hospitals were penalized \$528 million collectively for readmissions. Machine learning is increasingly being used to build models that predict if a patient has a high probability of being readmitted, which allows hospital staff to prioritize resources around high-risk patients and potentially prevent the otherwise likely readmission. Healthcare providers possess every-growing stores of medical data that are essential for building accurate predictive models. While most of this information is private and not widely available for research, there are a few public datasets that researchers can use to build models and gain a better understand what kind of information is significant in the task of identifying high-risk patients. One such dataset includes over 100,000 patient admissions that occurred at 130 US hospitals between 1999 and 2008 and includes many features that can be used to build models. Open-source Python tools such as scikit-learn, pandas and matplotlib have tools necessary for preparing, modeling and visualizing data. These tools can be used to define algorithms that describe the problem of hospital readmissions by creating classifiers that assign samples based on the probability of readmission. Machine learning techniques, such as logistic regression, are capable of modeling data for classification problems, and these open-source tools include methods for assessing and optimizing the algorithms. The effectiveness of machine learning in classifying patients for risk of readmission is a growing topic of study and implementation of tools for assisting healthcare providers will likely continue to increase.
  
 \end{abstract}
 
@@ -83,17 +83,23 @@ Sensitivity and specificity can be assessed in tandem by the receiver operating 
 
 \subsection{Data Preparation}
 
-
 The data needs to be cleaned up so that the model can evaluate the features properly. For logistic regression and support vector machines, the data must be numerical. Columns such as 'num\_procedures' and 'num\_lab\_procedures' contain numerical data, and are ready to use as-is. Other columns such as 'A1Cresult' includes values such as '', '', and ''. These values must be encoded to work properly. The Python library Pandas has a funciton called 'get\_dummies' will create columns that include two values, 0's and 1's, for each unique value in a column. In the case of the column 'A1creslt', this process will yield X columns, one for each unique value. For each observation, a 1 will appear in the column corresponding to value of the original feature.
-Consideration must be given to problems that can arise from transofrming categorical variables in this manner.  
+Consideration must be given to problems that can arise from transforming categorical variables in this manner.For example, if a feature called 'gender' contains two values, male and female, and this feature is converted into two dummy features, these two features will be collinear. Where one feature columns has a value of one, the other will have a zero, and visa versa. This means that one feature column can perfectly predict the value of the other feature column, so the inclusion of the second column would be redundant. The two feature columns explain the variance in the dependent variable, and neither adds additional value while in the presence of the other.
+Issues pertaining to collinearity between two variables and multicollinearity between three or more variables can diminish the predictive power of the model (list ways in which multicollinearity is bad. discuss how get\_dummies by nature causes this issue, and how care need to be taken to remove variables such that collinearity is fixed). One method for identifying features with high collinearity is to determine the variance inflaction factor (VIF) for each independent variable. This technique fits each independent variable, one at a time, against all of the other independent variables. This can be represented by the equation. For a dataset with k-features,:
 
-For decision tree methods, the 
-get dummies, change multi level categorical variables
-delete columns and why - all 1's, all 0's redundancy between med specialty and diagnosis categories
-cleanup of diagnosis codes
-multicollinearity
-scale 0 to 1
+\[X_1 = \beta_2X_2 + \beta_3X_3 + \beta_4X_4 + ... + \beta_kX_k \]
+\[X_2 = \beta_1X_1 + \beta_3X_3 + \beta_4X_4 + ... + \beta_kX_k \]
+\[X_3 = \beta_1X_1 + \beta_2X_2 + \beta_4X_4 + ... + \beta_kX_k \]
+...
+\[X_k = \beta_1X_1 + \beta_2X_2 + \beta_3X_3 + ... + \beta_kX_k \]
 
+The VIF can be calculated for each features by the equation:
+
+VIFk = (1 / (1 - R2k))
+
+R2k is the coefficient of determination, or R-squared, and it describes the proportion of variation in the dependent variable that is described by the independent variables. A high R-squared means that the independent variables explain a significant amount of variation in the dependent variable. In the context of VIF, if one independent variable is thoroughly explained by the other independent variables, the R-squared will be high which will lead to a high VIF. While the threshold for acceptable VIF values differs, most describe using values around 5.
+After calculating the VIF for all features, one strategy is to indentify groups of high-VIF features that stemmed from one feature following the 'get\_dummies' procedure, and then remove one of the features from the each group. The absence of one of these 
+How ICD9 codes are handled, problems related to sparsity, how this is redundant with medical specialty as in obstetrics codes will be in obsetrics specialty. also null for half of observations.
 only include one admit per patient, samples need to be independent
 
 \section{Logistic Regression}
@@ -104,7 +110,7 @@ Logistic regression models the probability that a sample belongs to a certain cl
 
 \[p(x) = Pr(Y = 1 | X)\]
 
-In the context of predicting hospital readmissions, this translates to 'the likelihood that a patient will be readmitted within 30 days of discharge given the patient's characteristics.' To determine the probability, logistic regression utilizes the logistc function, which takes in the coefficient weights and feature responses for each sample and returns a the probability - a number between 0 and 1\cite{cite08}. In the case of logistc regression involving multiple features, the model takes the form:
+In the context of predicting hospital readmissions, this translates to the likelihood that a patient will be readmitted within 30 days of discharge given the patient's characteristics.' To determine the probability, logistic regression utilizes the logistc function, which takes in the coefficient weights and feature responses for each sample and returns a the probability - a number between 0 and 1\cite{cite08}. In the case of logistc regression involving multiple features, the model takes the form:
 
 \[ f(x) =\frac{e^{\beta_0 + \beta_1X_1 + ... + \beta_pX_p}}{1 + e^{\beta_0 + \beta_1X_1 + ... + \beta_pX_p}}  \]
 
@@ -116,7 +122,7 @@ The model is fit to the data by adjusting the coefficient weights using a method
 
 
 \subsection{Logistic Regression - Execute Analysis}
-fitting, changing parameters
+
 
 \subsection{Logistic Regression - Evaluate Analysis}
 
@@ -124,38 +130,8 @@ classification reports, f score
 predict method
 predict proba
 decision function
+interpret a few parameters. positive or negative means odds go up or down
 
-L2 vs L1
-
-\section{Decision Trees}
-
-\subsection{Decision Trees - Intuition}
-
-Tree-based machine learning techniques are conceptually simple strategies for modeling data. Decision trees segment the observations based on a series of if/else statements, ultimately leading to a class prediction \cite{cite08}. The sequence of if/else rules can be visualized as an upside-down tree. The first node of the tree is called the root node and contains all observations. The root node is split into two nodes by applying an if/else rule to a specific feature in the observations.\cite{cite13}. An example if/else rule might be 'patient received hemoglobin A1c test', and each observations is separated into different nodes depending on whether than observations received a hemoglobin A1c test. Each node that splits into additional nodes is referred to as a nonterminal node \cite{cite13}. A node that does not furhter split that data is referred to as a terminal node, which predicts a class for all observations that have followed each branch into that particular node \cite{cite13}.
-Decision trees use a top-down, greedy approach to segment data called recursive binary splitting \cite{03}. The 'top-down' part of the term means that all observations are grouped together at the start of the tree and then subsequently split into separate branches. The approach is referred to as greedy because the if/else question chosen at each branch is the best split possible at that particular branch. This is a potentially short-sighted strategy, hence the name greedy, because it is possible that a rule that creates the best split at one particular node may not benefit the model in the long term as well as the second or third best split \cite{cite03}.
-Recursive binary splitting determines the best split by iterating through each feature and splitting the observations by various if/else rules. The combination of feature and if/else rule that yields the lowest classification error rate, and therefore is most informative way to separate the observations by class, is chosen as the rule for that particular node \cite{cite03} \cite{cite08}. The classification error rate can be determined by dividing the number of observations that are in the minority in a region by the total number of observations in that region.
-The two resulting nonterminal nodes can be split by another recursive binary split, over and over, until each leads to a terminal that scores a classification error rate of zero, but a tree of this complexity will likely be overfitting the training data \cite{cite03}. There are several strategies for preventing overfitting, such as pruning and limiting the depth of the tree to a certain number of terminal nodes. 
-
-\subsection{Decision Trees - Preprocessing}
-
-\subsection{Decision Trees - Execute Analysis}
-
-\subsection{Decision Trees - Evaluate Analysis}
-
-
-\section{Support Vector Machines}
-
-\subsection{Support Vector Machines - Intuition}
-
-A support vector machine (SVM) is a classifier that can be used to separate data using linear and non-linear boundaries. There are a few subtypes of SVMs. A maximal margin classifier seeks to perfectly separate the observations into their respective classes by using a linear boundary. As this is often not possible given the distribution of the observations, a more lenient type of SVM is the support vector classifier (SVC). An SVC is a classifier that resigns to the fact that a few observations will be misclassified but strives to achieve an overall better separating boundary \cite{cite03}.
-In two dimensional space, SVCs determine a line the best separates the classes. In three dimensional space, SVCs separate the classes using a plane. In four dimensional space and beyond, SVCs use a 'hyperplane' to draw a boundary between the classifiers. The term 'support vector' comes from the concept that the boundary is drawn in a way that, in addition to minimizing error, it maximizes the distance between the boundary and the nearest observations \cite{cite03}. These observations are the support vectors.
-If the observations are not linearly-separable, an SVM can be used to advance upon SVCs by drawing non-linear boundaries \cite{cite03}. In all subtypes of SVMs, unseen observations are classified based on which side of the hyperplane that the observations appears.
-
-\subsection{Support Vector Machines - Preprocessing}
-
-\subsection{Support Vector Machines - Execute Analysis}
-
-\subsection{Support Vector Machines - Evaluate Analysis}
 
 
 
@@ -165,6 +141,7 @@ we don't know the test error, CV can help
 
 Cross validation is a strategy for estimating the test error by cycling through the training data \cite{cite03}
 GridsearchCV
+L2 vs L1
 
 \section{How To Improve Analysis}
 
@@ -172,9 +149,6 @@ Additional features, socioeconomic status(SES)
 
 additional studies that includes SES, do they improve?
 
-\section{Pitfalls}
-
-curse of dimensionality
 
 \section{Incorporating By The Bedside}
 bedside alerts, discharge planning, case management team assignment, home care
