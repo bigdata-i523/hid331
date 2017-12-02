@@ -1,0 +1,223 @@
+\documentclass[sigconf]{acmart}
+
+\input{format/i523}
+
+\begin{document}
+\title{Big Data Applications in Predicting Hospital Readmissions}
+
+\author{Tyler Peterson}
+\orcid{1234-5678-9012}
+\affiliation{%
+  \institution{Indiana University - School of Informatics, Computing, and Engineering}
+  \streetaddress{711 N. Park Avenue}
+  \city{Bloomington} 
+  \state{Indiana} 
+  \postcode{47408}
+}
+\email{typeter@iu.edu}
+
+% The default list of authors is too long for headers}
+\renewcommand{\shortauthors}{G. v. Laszewski}
+
+\begin{abstract}
+
+  Hospital readmissions occur when a patient is discharged from a hospital and subsequently readmitted to a hospital within a short time frame. Hospitals are held accountable and penalized for readmissions that occur within 30 days of the initial inpatient stay. In 2016, nearly 2,600 hospitals were penalized \$528 million collectively for readmissions. Machine learning is increasingly being used to build models that predict if a patient has a high probability of being readmitted, which allows hospital staff to prioritize resources around high-risk patients and potentially prevent the otherwise likely readmission. Healthcare providers possess every-growing stores of medical data that are essential for building accurate predictive models. While most of this information is private and not widely available for research, there are a few public datasets that researchers can use to build models and gain a better understand what kind of information is significant in the task of identifying high-risk patients. One such dataset includes over 100,000 patient admissions that occurred at 130 US hospitals between 1999 and 2008 and includes many features that can be used to build models. Open-source Python tools such as scikit-learn, pandas and matplotlib have tools necessary for preparing, modeling and visualizing data. These tools can be used to define algorithms that describe the problem of hospital readmissions by creating classifiers that assign samples based on the probability of readmission. Machine learning techniques such as logistic regression, support vector machines and decision trees are ideal for modeling data for classification problems, and these open-source tools include methods for assessing and optimizing the algorithms. The effectiveness of machine learning in classifying patients for risk of readmission is a growing topic of study and implementation of tools for assisting healthcare providers will likely continue to increase.
+ 
+\end{abstract}
+
+\keywords{hid331, i523, Big Data, Hospital Readmissions, Machine Learning, Classification, Python}
+
+\maketitle
+
+\section{Introduction}
+
+Hospital readmissions are problematic for both patients and healthcare providers. Even a single hospital admission for a patient can be an inconvenient, expensive and anxiety-inducing major life event. For a patient to be subsequently readmitted to the hospital, the patient again experiences the negative aspects of being in a hospital, along with a diminished quality of life that accompanies a recurrent disease or medical issue. Healthcare providers are increasingly being held accountable and often penalized for an inability to keep recently discharged patients from being readmitted. It has been estimated that nearly 1 in 5 Medicare patients discharged from a hospital will be readmitted within 30 days \cite{cite05}
+The Hospital Readmission Reduction Program (HRRP), which originated in 2013 as a provision in the Affordable Care Act, serves as an example of an initiative that punishes hospitals for readmissions byadministering financial penalties on hospitals with disproportionately high readmission rates among Medicare beneficiaries \cite{cite06}. The HRRP levies a reduction in Medicare reimbursement, and uses the 'all-cause' definition for readmissions, which means that a subsequent hospital stay that occurs for any reason within 30 days of the initial stay counts against the hospital \cite{cite06}. The program focuses on patients initially admitted with a heart attack, heart failure, pneumonia, chronic obstructive pulmonary disease, a coronary artery bypass graft procedure or a hip/knee replacement procedure \cite{cite06}. If a hospital's risk-adjusted readmission rate is higher than the national average, then that hospital will be penalized. Further, the excessiveness of the rate is considered as well, ensuring that providers with the worst readmission rates have proportionately higher penalties \cite{cite06}. In 2016, the US government penalized 79 percent of US hospitals, which amounts to 2,597 instituions \cite{cite00}. The penalties for those readmissions, applied to the 2017 fiscal year reimbursements, amounted to \$528 million nationally, \$108 million higher than the previous year \cite{cite00}. 
+Effectively this means that the care provided to readmitted patients is uncompensated care, which stil requires valuable resources such as medical supplies, pharmaceuticals, the occupancy of hospital beds and the attention of medical staff. HRRP has had the intended effect of bringing increased attention to readmissions, and some healthcare providers are leveraging their ever-increasing medical data stores to better understand their patients. Several organization are using machine learning to identify high-risk patients. Assessing patients for the likelihood of readmission presents a binary classification problem, where a model's goal is to come to one of two conclusions on each case. The model analyzes each patient and the patient's accompanying attributes and concludes either that the patient will be readmitted or will not be readmitted.
+
+\subsection{Applying Machine Learning to Hospital Readmissions}
+
+There are several studies pertaining to the effectiveness of using machine learning to build predictive models that address this problem. A 2011 study conducted a systematic review of the topic and found 26 studies discussing predictive models related to hospital readmissions. These models were created using administrative claims data, electronic medical record (EMR) data, or a combination of each type of dataset \cite{cite08}. Administrative claims data is primarily gathered for billing purposes and contains information about procedures, diagnoses, length of hospital stay and location of care \cite{cite10}. The advantage of this type of data is that it typically describes large populations and is inexpensive to acquire because it's already gathered for billing \cite{cite05}. EMRs contain the basic information contained in adminstrative claim data, and also include lab data, image data and the results of various diagnostic tests, as well as social and behavioral information. Of the 26 studies reviewed by this paper, only 4 reported an area under the curve (AUC) value greater than 0.70, indicating that the other 22 models performed relatively poorly at classifying high-risk patients. Interestingly, 3 of the 4 studies with a moderately high AUC built models with clinical information found in EMRs in addition to administrative claims data, which suggests that the rich information available in EMRs adds discriminative power to the predictive models \cite{cite05}.
+One study that demonstrates the power of incorporating EMR data was conducted at Mount Sinai Health System in New York, NY. Mount Sinai developed a model to predict readmissions among patients with heart failure, which is the top cause of readmission among Medicare beneficiaries \cite{cite01}. To build the model, Mount Sinai leveraged their EMR system to mine 4,205 patient attributes, including 1,763 diagnosis codes, 1,028 medications, 846 laboratory measurements, 564 surgical procedures, and 4 types of vital signs. The study used a cohort of 1,068 patients, 178 of whom were readmitted within 30 days \cite{cite01}. The model achieved a prediction accuracy rate of 83.19 percent and an AUC value of 0.78. Commenting on this outcome, Mount Sinai said that the model would benefit from the inclusion of several years of data from several different hospital sites \cite{cite01}. In other words, even more data is needed to further improve the accuracy of the model.
+
+\section{Analysis}
+
+Though the data used by institutions to build models is not widely available, there are a few public  datasets that can be used by machine learning practitioners to better understand how predictive modeling techniques can be applied to the task of predicting readmissions. One such dataset comes from from the Cerner Corporation's Health Facts database, which is comprised of comprehensive clinical EMR records voluntarily provided by hospitals across the United States \cite{cite11}.
+Researchers extracted a subset of 101,766 encounters from the nearly 74 million records in the Health Facts database for the purpose of studying diabetic inpatient encounters. The admissions span 10 years from 1999 to 2008, and occurred at 130 different hospitals across the United States. The researchers used the following criteria to narrow down the dataset: 1) the encounter is an inpatient encounter 2) it was a diabetic encounter, meaning at least one diabetic diagnosis code was associated with the episode of care 3) The length of stay was between 1 and 14 days 4) the patient had at least one lab test and 5) the patient was administered at least one medication \cite{cite11}. This dataset is now publicly available on the UCI Machine Learning Repository.
+The dataset contains 55 attributes, or features, that are potentially related to hospital readmissions, including diagnoses defined by ICD-9-CM codes, in-hospital procedures, hospital characteristics, individual provider information, lab data, pharmacy data, and demographic data, such as age, gender and race. Each patient encounter record also has a label indicating whether or not the patient was readmitted within 30 days. Since the dataset includes these labels, supervised machine learning techniques can be used, as opposed to unsupervised machine learning techniques. Further, since the model will need to predict whether or not a patient will be readmitted within 30 days, this is a binary classificaiton problem. The model will classify each patient encounter as highly likely of readmission within 30 days or not likely of readmission within 30 days.
+
+\section{Overview of Supervised Machine Learning}
+
+Several algorithms can be used for supervised classification problems, including logistic regression, support vector machines (SVM) and decision trees. An open-source Python library called scikit-learn has modules for training and evaluating models built using each of these three types of algorithms. Though there are several types of algorithms, there are several fundamentals of machine learning that apply to all predictive modeling techniques.
+
+\subsection{Minimization of Error}
+
+The goal of a machine learning algorithm is to minimize the error made in the predictions. The general form of this concept can be represented by the formula:
+
+\[Y = f(x) + \epsilon\]
+
+where \(Y\) is the actual outcome associated with the sample, \(X\) represents the attributes associated with each sample, \(f(X)\) is a function that represents the systematic information \(X\) provides about Y, and \(\epsilon\) is the error term describing the differences between the predicted value returned by \(f(X)\) and the actual value represented by \(Y\) \cite{cite03}. A perfect prediction means \(f(X)\) equals \(Y\) and \(\epsilon\) equals zero. In reality, the error term will rarely be zero, so each prediction yields a certain amount of error. The prediction accuracy for each sample is evaluated by this formula, and sum of the error terms from each evaluation represents the magnitude of error made by the model. The goal is make the sum of errors as low as possible \cite{cite03}.
+The error term is minimized through optimization of \(f(X)\), which is intended to describe the patterns that exist between the independent variables, represented by \(X\), and the dependent variable, represented by \(Y\). Said differently, the equation describes the relationship between the features and the label. The way that this function describes this relationship is through coefficient weights. Each feature in the dataset is paired with a numerical weight that accentuates or diminishes the impact of a feature on the predicted outcome. The way in which these coefficients can be interpreted differs by which algorithm is being used, but the intuition remains the same: the coefficients are adjusted to highlight the important features in the dataset. Once the coefficients are determined, the model has been fit to the data.
+
+\subsection{Training Set vs. Test Set}
+
+The coefficient weights of the model are defined by analyzing the samples in a dataset. In a practical sense, the value of a model depends on its ability to accurately predict the outcomes of new samples that were unseen at the time the model was determined \cite{cite08}. A model that performs well when making predictions with new data is said to generalize well.
+A machine learning practitioner will want to have confidence in the model's ability to generalize before deploying the model to make predictions in real-time, and will not necessarily have a new dataset of previously unseen observations to run through the model. To get around this, the original dataset is often split into two parts. The first part of the dataset is referred to as the training set and is used to determine the coefficient weights. The second part of the dataset is referred to as the test set, and this set is run through the model derived from the training set. The accuracy of the predictions on the test set is compared to the accuracy of the predictions on the training set to determine the extent to which the model generalizes \cite{cite08}.
+A model that has high training accuracy, but low test accuracy, is said to be overfitting the data. This means that the model, in its efforts to minimize \(\epsilon\), has become too complex and focuses too closely on the samples in the training data set. By chasing patterns in the training data caused moreso by random chance than by the true characteristics of \(X\), the model no longer generalizes to the unseen samples in the test set \cite{cite03}\cite{cite08}. An overfit model describes characteristics in the training data that are not in the test data, leading to poor predictions on the test sett.
+A model can also underfit the data, which means the model is failing to capture the relationship between \(Y\) and \(X\)and will likely perform poorly on both the training and test datasets.
+
+\subsection{The Bias/Variance Trade-off}
+
+Bias and Variance are two important components related to training models using machine learning. Variance describes the extent to which a model changes due to small adjustments in the training data. Since the training data used to fit a model can vary, it is reasonable to expect that a model will change when different samples are selected into the training dataset, but ideally the model changes only slightly \cite{cite03}. If a model is quite complex and is overfitting the training data, then slight changes in the training samples can have a large effect on the coefficient weights. Low variance is preferable \cite{cite03}.
+Bias refers to the error that occurs when trying to describe a phenomenon using a derived model. For example, if a machine learning technique assumes a linear relationship between the independent and dependent variables, but the relationship is highly non-linear, then the selected technique will result in high bias \cite{cite03}. The chosen approach to the problem is not well-suited to the task at hand and will make predicitons that are far from reality.
+As the method for training a model becomes more complex and able to fit to the perceived important important in the training data, variance will increase and bias will decrease. The model will become more flexible and therefore more sensitive to variationa in the training data, but will reduce bias by reducing the prediction error. The important part of the relationship between these two components is that as a model becomes more complex, the bias decreases more rapidly than the variance increases, so the trade-off of increasing variance while decreasing bias leads to a net gain in improvement of the model \cite{cite03}. However, there is a point at which the model becomes too complex and the net gain begins to disappear. Increased model complexity leads to significantly higher variance without appreciable improvement in bias \cite{cite03}. 
+
+\subsection{Model Evaluation}
+
+Several statistics can be used for evaluating model accuracy. For classification problems, a basic technique for evaluation is the confusion matrix. Figure 1 shows the general framework of a confusion matrix which shows the counts of each type of prediction and the accuracy of that prediciton. A true positive is an outcome that is predicted to be positive and is positive in reality \cite{cite12}. A true negative is an outcome that is predicted to be negative and is negative in reality \cite{cite12}. These are the preferred responses. In the context of hospital readmissions, a true positive is a prediction that a patient in the test dataset, according to the trained model, will be readmitted to the hospital within 30 days, and this occurs in reality. A true negative is a prediction that a patient in the test dataset will not be readmitted, and this occurs in reality.
+On the other hand, a false positive is an outcome that is predicted to be positive but is negative in reality \cite{cite12}. A false negative is an outcome that is predicted to be negative but is positive in reality. These are errors in prediction \cite{cite12}. If a healthcare provider acts on a false positive, that could mean that a patient, who without intervention would not have been readmitted within 30 days, received resources and attention that were not necessary. In the case of a false negative, this means a patient who eventually did get readmitted within 30 days could have benefited from additional attention and resource from a healthcare team. 
+These four components - true positives, true negative, false positives, and false negatives - can be combined to create more nuanced metrics. Two of those metrics are sensitivity and specificity. Sensitivity refers to the true positive detection rate. This is the percentage of positive occurrences that are successfully identified \cite{cite12}. Specificity is the true negative detection rate. This is the percentage of negative occurrences that are successfully identified \cite{cite12}.
+In the context of readmissions, low sensitivity means many patients who eventually get readmitted are not predicted to be high-risk before the readmission occurs. Low specifity means that many patients who would not otherwise be readmitted are predicted to be readmitted. There is a trade-off between sensitivity and specificity, and an improvement in one often causes the other to worsen. Preference toward sensitivity or specificity often depends on the cost of incorrect predictions.
+A patient who otherwise would not be readmitted who is predicted to be high-risk is the type of case that will incur unnecessary resources. While this requires healthcare providers to invest resources that are not needed, the readmission is nevertheless avoided and there are potentially other benefits achieved by the hospital, such as increased satisfaction of the patient and their family. On the other hand, a patient who eventually gets readmitted but was not idenfitifed beforehand will likely be costly to a hospital in a couple ways. The provider must dedicate resources to stabilizing and healing the patient, while also incurring penalties if this type of readmission occurs frequently. If the expense of an unexpected readmission is higher than the expense of deploying unncecessary resources to low-risk patients, then a model that favors higher sensitivity at the expense of lower specificity is preferable.
+Sensitivity and specificity can be assessed in tandem by the receiver operating characteristic (ROC) curve, which quite useful for evaluating supervised classification models. The ROC curve plots the true positive rate against the false positive rate (100 minus the true negative rate) for varying decision thresholds. This illustrates the trade-off between sensitivity and specificity and can provide guidance on which decision threshold is appropirate for the task \cite{cite12}. ROC curves are often leveraged to evaluate the performance of models by calculating the area under the ROC curve, also known as the AUC. The goal is the maximize the AUC value, and that value points to the optimal balance between sensitivity and specificity \cite{cite12}.
+
+\subsection{Data Preparation}
+
+
+The data needs to be cleaned up so that the model can evaluate the features properly. For logistic regression and support vector machines, the data must be numerical. Columns such as 'num\_procedures' and 'num\_lab\_procedures' contain numerical data, and are ready to use as-is. Other columns such as 'A1Cresult' includes values such as '', '', and ''. These values must be encoded to work properly. The Python library Pandas has a funciton called 'get\_dummies' will create columns that include two values, 0's and 1's, for each unique value in a column. In the case of the column 'A1creslt', this process will yield X columns, one for each unique value. For each observation, a 1 will appear in the column corresponding to value of the original feature.
+Consideration must be given to problems that can arise from transofrming categorical variables in this manner.  
+
+For decision tree methods, the 
+get dummies, change multi level categorical variables
+delete columns and why - all 1's, all 0's redundancy between med specialty and diagnosis categories
+cleanup of diagnosis codes
+multicollinearity
+scale 0 to 1
+
+only include one admit per patient, samples need to be independent
+
+\section{Logistic Regression}
+
+\subsection{Logistic Regression - Intuition}
+
+Logistic regression models the probability that a sample belongs to a certain class given the feature values of the sample \cite{cite08}. This probability can be represented as:
+
+\[p(x) = Pr(Y = 1 | X)\]
+
+In the context of predicting hospital readmissions, this translates to 'the likelihood that a patient will be readmitted within 30 days of discharge given the patient's characteristics.' To determine the probability, logistic regression utilizes the logistc function, which takes in the coefficient weights and feature responses for each sample and returns a the probability - a number between 0 and 1\cite{cite08}. In the case of logistc regression involving multiple features, the model takes the form:
+
+\[ f(x) =\frac{e^{\beta_0 + \beta_1X_1 + ... + \beta_pX_p}}{1 + e^{\beta_0 + \beta_1X_1 + ... + \beta_pX_p}}  \]
+
+The model is fit to the data by adjusting the coefficient weights using a method called maximum likelihood. The intuition of this process is that the estimates for the coefficients are set such that the predicted probability of a certain outcome corresponds as closely as possible to the actual label of that sample. This means that the ideal coefficient weights, when plugged into the logistc function, return a number close to one for the readmitted patients and a number close to zero for the patients not readmitted \cite{cite08}.
+
+\subsection{Logistic Regression - Preprocessing}
+
+
+
+
+\subsection{Logistic Regression - Execute Analysis}
+fitting, changing parameters
+
+\subsection{Logistic Regression - Evaluate Analysis}
+
+classification reports, f score
+predict method
+predict proba
+decision function
+
+L2 vs L1
+
+\section{Decision Trees}
+
+\subsection{Decision Trees - Intuition}
+
+Tree-based machine learning techniques are conceptually simple strategies for modeling data. Decision trees segment the observations based on a series of if/else statements, ultimately leading to a class prediction \cite{cite08}. The sequence of if/else rules can be visualized as an upside-down tree. The first node of the tree is called the root node and contains all observations. The root node is split into two nodes by applying an if/else rule to a specific feature in the observations.\cite{cite13}. An example if/else rule might be 'patient received hemoglobin A1c test', and each observations is separated into different nodes depending on whether than observations received a hemoglobin A1c test. Each node that splits into additional nodes is referred to as a nonterminal node \cite{cite13}. A node that does not furhter split that data is referred to as a terminal node, which predicts a class for all observations that have followed each branch into that particular node \cite{cite13}.
+Decision trees use a top-down, greedy approach to segment data called recursive binary splitting \cite{03}. The 'top-down' part of the term means that all observations are grouped together at the start of the tree and then subsequently split into separate branches. The approach is referred to as greedy because the if/else question chosen at each branch is the best split possible at that particular branch. This is a potentially short-sighted strategy, hence the name greedy, because it is possible that a rule that creates the best split at one particular node may not benefit the model in the long term as well as the second or third best split \cite{cite03}.
+Recursive binary splitting determines the best split by iterating through each feature and splitting the observations by various if/else rules. The combination of feature and if/else rule that yields the lowest classification error rate, and therefore is most informative way to separate the observations by class, is chosen as the rule for that particular node \cite{cite03} \cite{cite08}. The classification error rate can be determined by dividing the number of observations that are in the minority in a region by the total number of observations in that region.
+The two resulting nonterminal nodes can be split by another recursive binary split, over and over, until each leads to a terminal that scores a classification error rate of zero, but a tree of this complexity will likely be overfitting the training data \cite{cite03}. There are several strategies for preventing overfitting, such as pruning and limiting the depth of the tree to a certain number of terminal nodes. 
+
+\subsection{Decision Trees - Preprocessing}
+
+\subsection{Decision Trees - Execute Analysis}
+
+\subsection{Decision Trees - Evaluate Analysis}
+
+
+\section{Support Vector Machines}
+
+\subsection{Support Vector Machines - Intuition}
+
+A support vector machine (SVM) is a classifier that can be used to separate data using linear and non-linear boundaries. There are a few subtypes of SVMs. A maximal margin classifier seeks to perfectly separate the observations into their respective classes by using a linear boundary. As this is often not possible given the distribution of the observations, a more lenient type of SVM is the support vector classifier (SVC). An SVC is a classifier that resigns to the fact that a few observations will be misclassified but strives to achieve an overall better separating boundary \cite{cite03}.
+In two dimensional space, SVCs determine a line the best separates the classes. In three dimensional space, SVCs separate the classes using a plane. In four dimensional space and beyond, SVCs use a 'hyperplane' to draw a boundary between the classifiers. The term 'support vector' comes from the concept that the boundary is drawn in a way that, in addition to minimizing error, it maximizes the distance between the boundary and the nearest observations \cite{cite03}. These observations are the support vectors.
+If the observations are not linearly-separable, an SVM can be used to advance upon SVCs by drawing non-linear boundaries \cite{cite03}. In all subtypes of SVMs, unseen observations are classified based on which side of the hyperplane that the observations appears.
+
+\subsection{Support Vector Machines - Preprocessing}
+
+\subsection{Support Vector Machines - Execute Analysis}
+
+\subsection{Support Vector Machines - Evaluate Analysis}
+
+
+
+\section{Model Optimization}
+
+we don't know the test error, CV can help
+
+Cross validation is a strategy for estimating the test error by cycling through the training data \cite{cite03}
+GridsearchCV
+
+\section{How To Improve Analysis}
+
+Additional features, socioeconomic status(SES)
+
+additional studies that includes SES, do they improve?
+
+\section{Pitfalls}
+
+curse of dimensionality
+
+\section{Incorporating By The Bedside}
+bedside alerts, discharge planning, case management team assignment, home care
+
+\section{Previous Analyses}
+
+flaws in methodology
+additional data points
+
+\section{figures}
+
+In Figure \ref{f:fly} we show a fly. Please note that because we use
+just columwidth that the size of the figure will change to the
+columnwidth of the paper once we change the layout to final. CHnaging
+the layout to final should not be done by you. All figures will be
+listed at the end.
+
+\begin{figure}[!ht]
+  \centering\includegraphics[width=\columnwidth]{images/rosette.pdf}
+  \caption{Example caption}\label{f:fly}
+\end{figure}
+
+When copying the example, please do not check in the images from the
+examples into your images directory as you will not need them for your
+paper. Instead use images that you like to include. If you do not have
+any images, do not dreate the images folder.
+
+\section{Conclusion}
+
+This is my conclusion
+
+\begin{acks}
+
+  The authors would like to thank Dr. Gregor von Laszewski for his
+  support and suggestions to write this paper.
+
+\end{acks}
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{report} 
+
+\appendix
+
+\input{issues}
+
+\end{document}
