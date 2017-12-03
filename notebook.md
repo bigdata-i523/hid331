@@ -80,6 +80,8 @@
 * 11/29/17 Worked on Python scripts for project
 * 12/01/17 Worked on Python scripts for project
 * 12/02/17 Worked on Python scripts for project
+* 12/03/17 Worked on Python scripts for project
+* 12/03/17 Finalize project
 
 # Meetings
 
