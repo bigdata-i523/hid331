@@ -1,0 +1,12 @@
+#
+####### requirements.txt #######
+#
+###### Required Python libraries ######
+pandas
+scikit-learn
+numpy
+seaborn
+matplotlib
+statsmodels
+jupyter
+#
