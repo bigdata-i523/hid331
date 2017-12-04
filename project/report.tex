@@ -157,7 +157,7 @@ There is another parameter called C, which dictates the strength of the regulari
 
 \subsubsection{Logistic Regression - Evaluate Analysis}
 
-The model is trained using both L1 and L2 regularization, and each regularization type is fit using three different values for C - 0.01, 1.0 and 100.0. Figure \ref{f:weights_l2} shows the coefficient weights using L2 regularization and the three different values of C. It is evident that higher values of C lead to larger weights. Figure \ref{f:weights_l1} show the coefficient weights using L1 regularization, again with the different values of C. In addition to the observation that higher value of C lead to larger weights, it is also interesting to note that using 0.01 for the value of C sets all but four weights equal to zero. The four features chosen by this model are the numbers of inpatient encounters, age 50-60, transferred to a skilled nursing facility and discharged to another rehabilitation facility. This pair of L1 regularization and 0.01 for C has the highest training and test set accuracy. The training accuracy is 91.063\% and the test accuracy rate is 90.0827\%. In the original dataset of the 69,998 observations, 63,704 were not readmitted. This is a rate of 91.02\%. This is only slightly smaller than the training accuracy and larger than the test accuracy, which means the model performs closely to the rate that would be achieved if a person guessed that every case would not be readmitted.
+The model is trained using both L1 and L2 regularization, and each regularization type is fit using three different values for C - 0.01, 1.0 and 100.0. Figure \ref{f:weightsl2} shows the coefficient weights using L2 regularization and the three different values of C. It is evident that higher values of C lead to larger weights. Figure \ref{f:weightsl1} show the coefficient weights using L1 regularization, again with the different values of C. In addition to the observation that higher value of C lead to larger weights, it is also interesting to note that using 0.01 for the value of C sets all but four weights equal to zero. The four features chosen by this model are the numbers of inpatient encounters, age 50-60, transferred to a skilled nursing facility and discharged to another rehabilitation facility. This pair of L1 regularization and 0.01 for C has the highest training and test set accuracy. The training accuracy is 91.063\% and the test accuracy rate is 90.0827\%. In the original dataset of the 69,998 observations, 63,704 were not readmitted. This is a rate of 91.02\%. This is only slightly smaller than the training accuracy and larger than the test accuracy, which means the model performs closely to the rate that would be achieved if a person guessed that every case would not be readmitted.
 The confusion matrix for L1, C = 0.01 model is:
 
 \[ 
@@ -170,7 +170,7 @@ The confusion matrix for L1, C = 0.01 model is:
 \]
 
 12,713 true negatives were identified and 1 true positive, for a total of 12,714 accurate predictions. There were 2 false positives and 1,282 false negatives. The model is effective at predicting patients who will not be readmitted, but the high number of false negatives, compared to the extremely low count of true negatives, demonstrates that the model is not performing well at identifying patients who eventually get readmitted. The models with C values of 1.0 and 100.0 have a true negative detection count of 4, slightly higher than the 1 observation classified correctly by the L1, C = 0.01 model.
-The relationship between the true positive and false positive rates can be visualized with an ROC curve. Figure \ref{f:roc_curve_001} show the ROC curve for the L1, C = 0.01 model. The black dotted line represents the 50/50 chance curve, which is equivalent with guessing. The ROC curve extends slightly above the 50/50 chance curve, which means the predictive power is slightly higher thatn random guessing. This is described by the AUC, which has a value of .50013. This is consistent with the conclusion that model is only slightly better than chance. Figure \ref{f:roc_curve_100} shows the ROC curve for the L1, 100 model, and the ROC curve bends further away from the 50/50 chance curve, and the AUC is slightly higher at 0.5013. This is consistent with the observation that the model with the higher value of C has a higher true negative detection rate. Ideally, the ROC curve is as close to the upper left hand corner as possible, which would represent a high true positive rate with a low false positive rate.
+The relationship between the true positive and false positive rates can be visualized with an ROC curve. Figure \ref{f:roccurve001} show the ROC curve for the L1, C = 0.01 model. The black dotted line represents the 50/50 chance curve, which is equivalent with guessing. The ROC curve extends slightly above the 50/50 chance curve, which means the predictive power is slightly higher thatn random guessing. This is described by the AUC, which has a value of 0.50013. This is consistent with the conclusion that model is only slightly better than chance. Figure \ref{f:roccurve100} shows the ROC curve for the L1, 100 model, and the ROC curve bends further away from the 50/50 chance curve, and the AUC is slightly higher at 0.5013. This is consistent with the observation that the model with the higher value of C has a higher true negative detection rate. Ideally, the ROC curve is as close to the upper left hand corner as possible, which would represent a high true positive rate with a low false positive rate.
 
 \section{Conclusion}
 
@@ -189,23 +189,23 @@ The author would like to thank Dr. Gregor von Laszewski and his teaching assista
 \section{figures}
 
 \begin{figure}[!ht]
-  \centering\includegraphics[width=\columnwidth]{images/weights_l2.png}
-  \caption{Basic Logistic Regression weight, L2 Regularization}\label{f:weights_l2}
+  \centering\includegraphics[width=\columnwidth]{images/weightsl2.png}
+  \caption{Logistic Regression Weights By C-Value, L2 Regularization}\label{f:weightsl2}
 \end{figure}
 
 \begin{figure}[!ht]
-  \centering\includegraphics[width=\columnwidth]{images/weights_l1.png}
-  \caption{Basic Logistic Regression weight, L1 Regularization}\label{f:weights_l1}
+  \centering\includegraphics[width=\columnwidth]{images/weightsl1.png}
+  \caption{Logistic Regression Weights By C-Value, L1 Regularization}\label{f:weightsl1}
 \end{figure}
 
 \begin{figure}[!ht]
-  \centering\includegraphics[width=\columnwidth]{images/roc_curve_001.png}
-  \caption{ROC Curve, L1 Regularization, C = 0.01}\label{f:roc_curve_001}
+  \centering\includegraphics[width=\columnwidth]{images/roccurve001.png}
+  \caption{ROC Curve, L1 Regularization, C = 0.01}\label{f:roccurve001}
 \end{figure}
 
 \begin{figure}[!ht]
-  \centering\includegraphics[width=\columnwidth]{images/roc_curve_100.png}
-  \caption{ROC Curve, L1 Regularization, C = 100.0}\label{f:roc_curve_100}
+  \centering\includegraphics[width=\columnwidth]{images/roccurve100.png}
+  \caption{ROC Curve, L1 Regularization, C = 100.0}\label{f:roccurve100}
 \end{figure}
 
 \appendix
