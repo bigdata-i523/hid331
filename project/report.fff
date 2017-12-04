@@ -1,0 +1,24 @@
+\begin{figure}[!ht]
+  \centering\includegraphics[width=\columnwidth]{images/weights_l2.png}
+  \caption{Basic Logistic Regression weight, L2 Regularization}\label{f:weights_l2}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[!ht]
+  \centering\includegraphics[width=\columnwidth]{images/weights_l1.png}
+  \caption{Basic Logistic Regression weight, L1 Regularization}\label{f:weights_l1}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[!ht]
+  \centering\includegraphics[width=\columnwidth]{images/roc_curve_001.png}
+  \caption{ROC Curve, L1 Regularization, C = 0.01}\label{f:roc_curve_001}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[!ht]
+  \centering\includegraphics[width=\columnwidth]{images/roc_curve_100.png}
+  \caption{ROC Curve, L1 Regularization, C = 100.0}\label{f:roc_curve_100}
+\end{figure}
+\efloatseparator
+ 
