@@ -62,7 +62,7 @@ project:
         will be described and compared, and the paper will discuss additional
         data elements that may allow the algorithms to make more accurate
         predictions.
-    url: https://github.com/bigdata-i523/hid331/project/
+    url: https://github.com/bigdata-i523/hid331/project
     type: project
-    status: Dec 04 17 100%
-    chapter: TBD
+    status: Dec 4 17 100%
+    chapter: Health
