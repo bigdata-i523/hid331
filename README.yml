@@ -18,7 +18,6 @@ paper1:
         - 331
     status: Oct 22 17 100%
     title: Big Data Applications in Population Health Management
-    type: latex
     url: https://github.com/bigdata-i523/hid331/paper1/report.pdf
 paper2:
     review: Nov 6 2017
@@ -36,7 +35,6 @@ paper2:
     title: >
         Big Data Applications in Using Neural Networks for Medical
         Image Analysis
-    type: latex
     url: https://github.com/bigdata-i523/hid331/paper2/report.pdf
 project:
     review: Dec 4 2017
